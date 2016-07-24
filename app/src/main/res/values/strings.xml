@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Wartaplus.com</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="action_fb_like">Facebook Like</string>
+
+    <string name="action_fb_comment">Facebook Comment</string>
+
+    <string name="action_share">Bagikan</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+</resources>

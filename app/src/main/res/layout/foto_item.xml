@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv"
+        app:cardUseCompatPadding="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            >
+
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/image_small"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:scaleType="fitXY" />
+
+
+            <TextView
+                android:id="@+id/ID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image_small"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:textSize="@dimen/ID"
+                android:visibility="gone" />
+
+            <!-- Thumbnail Image -->
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/thumbnail1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@id/image_small"
+
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="11dp"/>
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/thumbnail2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@id/image_small"
+                android:layout_toRightOf="@+id/thumbnail1"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp" />
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/thumbnail3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@id/image_small"
+                android:layout_toRightOf="@+id/thumbnail2"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp" />
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/thumbnail4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@id/image_small"
+                android:layout_toRightOf="@+id/thumbnail3"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="0.1dp" />
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/thumbnail1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:textColor="#000000"
+                android:textSize="@dimen/title"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/image_small"
+                android:textColor="@color/content"
+                android:textSize="@dimen/author"
+                android:textStyle="bold"
+                android:visibility="gone"
+
+                />
+
+
+            <TextView
+                android:id="@+id/created_at"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/content"
+                android:textSize="@dimen/content"
+
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

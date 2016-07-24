@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item  app:showAsAction="always"
+        android:title=""
+        android:icon="@drawable/ic_menu_more"
+        android:orderInCategory="3"
+        >
+        <menu>
+            <item
+                android:id="@+id/action_share"
+                android:icon="@drawable/ic_menu_share_alt"
+                app:showAsAction="always"
+                android:title="Bagikan"/>
+            <item
+                android:id="@+id/action_visit"
+                android:icon="@drawable/ic_menu_cloud"
+                app:showAsAction="always"
+                android:title="Visit Web"/>
+        </menu>
+    </item>
+
+
+</menu>

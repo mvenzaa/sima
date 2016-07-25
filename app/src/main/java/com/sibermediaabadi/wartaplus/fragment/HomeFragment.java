@@ -11,12 +11,21 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
+import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
 import com.sibermediaabadi.wartaplus.activity.DetailArticle;
 import com.sibermediaabadi.wartaplus.adapter.ListAdapter;
+import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.article;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +63,7 @@ public class HomeFragment extends Fragment {
 
     bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
     bar.setVisibility(View.VISIBLE);
-    list("default");
+    list("default",url_page_default);
         listView.setPadding(0, 140, 0, 0);
 
 
@@ -63,7 +72,7 @@ public class HomeFragment extends Fragment {
                 public void onRefresh() {
                     listView.setPadding(0, 140, 0, 0);
                     url_page_default = 1;
-                    list("refresh");
+                    list("refresh",url_page_default);
                 }
             });
     ((PullAndLoadListView) listView)
@@ -71,7 +80,7 @@ public class HomeFragment extends Fragment {
                 public void onLoadMore() {
                     listView.setPadding(0, 140, 0, 0);
                     url_page_default = url_page_default + 1;
-                    list("loadmore");
+                    list("loadmore",url_page_default);
                 }
             });
 
@@ -90,104 +99,56 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
-    public void list(final String type) {
+    public void list(final String type,final int page) {
         // Creating volley request obj
 
+        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url+ "/posts?filter[posts_per_page]=10&page=" + String.valueOf(page),
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+
+                                JSONObject obj = response.getJSONObject(i);
+                                JSONObject featured_image = obj.getJSONObject("featured_image");
+                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
+                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
+                                JSONObject medium = sizes.getJSONObject("medium");
+                                article b = new article();
+                                b.setImage_small_Url(featured_image.getString("source"));
+                                b.setID(obj.getInt("ID"));
+                                b.setTitle(obj.getString("title"));
+                                b.setCreated_at(obj.getString("date"));
+                                articleList.add(b);
+
+                            } catch (JSONException e) {
+
+                                e.printStackTrace();
+                            }
+
+                            adapter.notifyDataSetChanged();
+                            bar.setVisibility(View.GONE);
 
 
-        if (type == "refresh") {
-            articleList.clear();
-        }
+                            if (type == "refresh") {
+                                ((PullAndLoadListView) listView).onRefreshComplete();
+                            } else {
 
+                                ((PullAndLoadListView) listView).onLoadMoreComplete();
 
-        for (int i = 0; i < 20; i++) {
+                            }
 
-            article a = new article();
-            a.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/571de00895761-rendering-honda-cbr250rr_663_382-660x330.jpg");
-            a.setID(1);
-            a.setTitle("Honda CBR250RR Meluncur di Indonesia 25 Juli");
-            a.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(a);
+                        }
+                    }
 
-            article b = new article();
-            b.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/Ketua-Komisi-Pemilihan-Umum-KPU-Prov.Papua-Adam-Arisoi.-Foto-Icahd.-660x330.jpg");
-            b.setID(2);
-            b.setTitle("KPU Papua Akan Sidak ke Kabupaten Sarmi");
-            b.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(b);
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-            article c = new article();
-            c.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/157686_mengintip-keindahan-raja-ampat_663_382-660x330.jpg");
-            c.setID(3);
-            c.setTitle("3 Negara Ini Punya Keindahan Bawah Laut yang Memikat");
-            c.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(c);
+            }
+        });
 
-            article d = new article();
-            d.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/planet-kepler_20150705_141444-660x330.jpg");
-            d.setID(4);
-            d.setTitle("NASA Temukan 2 Planet Kembaran Bumi");
-            d.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(d);
-
-            article e = new article();
-            e.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/0136399lorenzo4780x390-660x330.jpg");
-            e.setID(5);
-            e.setTitle("Lorenzo Optimis Bisa Kalahkan Marquez");
-            e.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(e);
-
-            article f = new article();
-            f.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/1739018zte-zmax780x390-660x330.jpg");
-            f.setID(6);
-            f.setTitle("ZTE Merilis Smartphone Berbasis Android dengan Harga Rp 1,3 Jutaan");
-            f.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(f);
-
-            article g = new article();
-            g.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/download-e1468699137977.jpeg");
-            g.setID(7);
-            g.setTitle("Dukung Jokowi Nyapres Di 2019, Golkar Lakukan Yang Tidak Lazim");
-            g.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(g);
-
-            article h = new article();
-            h.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/mantan-gubernur-gatot-dikirim-ke-lapas-tanjung-gusta-660x330.jpg");
-            h.setID(8);
-            h.setTitle("Mantan Gubernur Gatot Dikirim ke Lapas Tanjung Gusta");
-            h.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(h);
-
-            article j = new article();
-            j.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/tirta-drive-terpesona-dan-kagum-dengan-kelembutan-terry-putri.jpg");
-            j.setID(9);
-            j.setTitle("Tirta Drive Terpesona dan Kagum Dengan Kelembutan Terry Putri");
-            j.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(j);
-
-            article k = new article();
-            k.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/07/LB-330x330.jpg");
-            k.setID(10);
-            k.setTitle("LP3BH Desak Pemerintah dan DPRP ‘Advokasi’ Yogyakarta");
-            k.setCreated_at("15 Juli 2016 15:00 WIB");
-            articleList.add(k);
-
-        }
-
-        adapter.notifyDataSetChanged();
-        bar.setVisibility(View.GONE);
-
-
-        if (type == "refresh") {
-            ((PullAndLoadListView) listView).onRefreshComplete();
-        } else {
-
-            ((PullAndLoadListView) listView).onLoadMoreComplete();
-
-        }
-
-
-        // AppController.getInstance().addToRequestQueue(movieReq, "SN");
+        AppController.getInstance().addToRequestQueue(movieReq, "SN");
 
     }
 }

@@ -11,12 +11,21 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
+import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
 import com.sibermediaabadi.wartaplus.activity.DetailFoto;
 import com.sibermediaabadi.wartaplus.adapter.FotoListAdapter;
+import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.foto;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +42,7 @@ public class FotoFragment extends Fragment {
 
     // Movies json url
     //private static final String url = "http://stopnarkoba.id/service/artikels?page=";
-    private Integer url_page_default = 1;
+    private Integer url_page_default = 0;
     private List<foto> fotoList = new ArrayList<foto>();
     private ListView listView;
     private FotoListAdapter adapter;
@@ -59,15 +68,15 @@ public class FotoFragment extends Fragment {
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
         listView.setPadding(0, 140, 0, 0);
-        list("default");
+        list("default",url_page_default);
 
 
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
                         listView.setPadding(0, 140, 0, 0);
-                        url_page_default = 1;
-                        list("refresh");
+                        url_page_default = 0;
+                        list("refresh",url_page_default);
                     }
                 });
         ((PullAndLoadListView) listView)
@@ -75,7 +84,7 @@ public class FotoFragment extends Fragment {
                     public void onLoadMore() {
                         listView.setPadding(0, 140, 0, 0);
                         url_page_default = url_page_default + 1;
-                        list("loadmore");
+                        list("loadmore",url_page_default);
                     }
                 });
 
@@ -95,40 +104,68 @@ public class FotoFragment extends Fragment {
 
     }
 
-    public void list(final String type) {
+    public void list(final String type,final int page) {
         // Creating volley request obj
 
-
-        if (type == "refresh") {
-            fotoList.clear();
-        }
-
-
-        for (int i = 0; i < 20; i++) {
-
-            foto a = new foto();
-            a.setImage_small_Url("http://www.wartaplus.com/wp-content/uploads/2016/05/fais.jpg");
-            a.setThumbnail1("http://www.wartaplus.com/wp-content/uploads/2016/05/fais-150x150.jpg");
-            a.setThumbnail2("http://www.wartaplus.com/wp-content/uploads/2016/05/Komunitas-Action-Ensambel-Papua-4-150x150.jpg");
-            a.setThumbnail3("http://www.wartaplus.com/wp-content/uploads/2016/05/Komunitas-Action-Ensambel-Papua-5-150x150.jpg");
-            a.setThumbnail4("http://www.wartaplus.com/wp-content/uploads/2016/05/Komunitas-Action-Ensambel-Papua-6-150x150.jpg");
-            a.setID(1);
-            a.setTitle("Pementasan Musik Ensambel Papua Pertama Kali di Ujung Timur Indonesia");
-            a.setCreated_at("15 Juli 2016 15:00 WIB");
-            fotoList.add(a);
-        }
-
-        adapter.notifyDataSetChanged();
-        bar.setVisibility(View.GONE);
+        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url+ "/wonderplugins?&page=" + String.valueOf(page),
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
 
 
-        if (type == "refresh") {
-            ((PullAndLoadListView) listView).onRefreshComplete();
-        } else {
+                                JSONObject obj = response.getJSONObject(i);
+                                JSONObject data = obj.getJSONObject("data");
+                                JSONArray slides = data.getJSONArray("slides");
+                                foto a = new foto();
+                                a.setCreated_at(obj.getString("time"));
+                                a.setID(obj.getInt("id"));
+                                // load data array di sini gambar
+                                // ganti x < 1 dengan x < 1 slides.length()
+                                // pasang di detail foto
+                                for (int x = 0; x < 1; x++) {
+                                    JSONObject sld = slides.getJSONObject(x);
+                                    a.setImage_small_Url(sld.getString("image"));
+                                    a.setTitle(sld.getString("title"));
+                                }
+                                fotoList.add(a);
 
-            ((PullAndLoadListView) listView).onLoadMoreComplete();
 
-        }
+                                adapter.notifyDataSetChanged();
+                                bar.setVisibility(View.GONE);
+
+
+
+                            } catch (JSONException e) {
+
+                                e.printStackTrace();
+                            }
+
+                            adapter.notifyDataSetChanged();
+                            bar.setVisibility(View.GONE);
+
+
+                            if (type == "refresh") {
+                                ((PullAndLoadListView) listView).onRefreshComplete();
+                            } else {
+
+                                ((PullAndLoadListView) listView).onLoadMoreComplete();
+
+                            }
+
+                        }
+                    }
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        AppController.getInstance().addToRequestQueue(movieReq, "SN");
+
 
     }
 

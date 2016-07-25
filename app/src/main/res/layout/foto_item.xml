@@ -44,50 +44,13 @@
                 android:textSize="@dimen/ID"
                 android:visibility="gone" />
 
-            <!-- Thumbnail Image -->
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/thumbnail1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_below="@id/image_small"
-
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="11dp"/>
-
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/thumbnail2"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_below="@id/image_small"
-                android:layout_toRightOf="@+id/thumbnail1"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="10dp" />
-
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/thumbnail3"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_below="@id/image_small"
-                android:layout_toRightOf="@+id/thumbnail2"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="10dp" />
-
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/thumbnail4"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_below="@id/image_small"
-                android:layout_toRightOf="@+id/thumbnail3"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="0.1dp" />
 
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/thumbnail1"
+                android:layout_below="@id/image_small"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"

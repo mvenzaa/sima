@@ -14,11 +14,12 @@
             android:id="@+id/nav_foto"
             android:title="FOTO" />
 
-    <item android:title="KATEGORI">
-    </item>
 
-    <item android:title="NEWSPLUS">
+
+
+    <item android:title="KATEGORI">
         <menu>
+
         <item
             android:id="@+id/nav_politik"
             android:icon="@drawable/ic_politik"
@@ -31,11 +32,9 @@
             android:id="@+id/nav_hukum"
             android:icon="@drawable/ic_hukum"
             android:title="HUKUM" />
+
         </menu>
     </item>
-
-
-
 
 
         <item

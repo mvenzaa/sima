@@ -55,19 +55,19 @@ public class ListAdapter extends BaseAdapter {
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
 
-        NetworkImageView image_small = (NetworkImageView) convertView
-                .findViewById(R.id.image_small);
+        NetworkImageView featured_image = (NetworkImageView) convertView
+                .findViewById(R.id.featured_image);
 
         TextView ID = (TextView) convertView.findViewById(R.id.ID);
         TextView title = (TextView) convertView.findViewById(R.id.title);
         TextView content = (TextView) convertView.findViewById(R.id.content);
-        TextView created_at = (TextView) convertView.findViewById(R.id.created_at);
+        TextView date = (TextView) convertView.findViewById(R.id.date);
 
         // getting video data for the row
         article m = articleItems.get(position);
 
         // image original
-        image_small.setImageUrl(m.getImage_small_Url(), imageLoader);
+        featured_image.setImageUrl(m.getFeatured_image_Url(), imageLoader);
 
         // ID
         ID.setText(String.valueOf(m.getID()));
@@ -79,7 +79,7 @@ public class ListAdapter extends BaseAdapter {
         content.setText(Html.fromHtml(String.valueOf(m.getContent())));
 
         // created at
-        created_at.setText(String.valueOf(m.getCreated_at()));
+        date.setText(String.valueOf(m.getDate()));
 
 
         return convertView;

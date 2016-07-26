@@ -55,19 +55,19 @@ public class TagListAdapter extends BaseAdapter {
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
 
-        NetworkImageView image_small = (NetworkImageView) convertView
-                .findViewById(R.id.image_small);
+        //NetworkImageView image_small = (NetworkImageView) convertView
+        //        .findViewById(R.id.image_small);
 
         TextView ID = (TextView) convertView.findViewById(R.id.ID);
         TextView title = (TextView) convertView.findViewById(R.id.title);
         TextView content = (TextView) convertView.findViewById(R.id.content);
-        TextView created_at = (TextView) convertView.findViewById(R.id.created_at);
+        //TextView created_at = (TextView) convertView.findViewById(R.id.created_at);
 
         // getting video data for the row
         article m = articleItems.get(position);
 
         // image original
-        image_small.setImageUrl(m.getImage_small_Url(), imageLoader);
+        //image_small.setImageUrl(m.getImage_small_Url(), imageLoader);
 
         // ID
         ID.setText(String.valueOf(m.getID()));
@@ -79,7 +79,7 @@ public class TagListAdapter extends BaseAdapter {
         content.setText(Html.fromHtml(String.valueOf(m.getContent())));
 
         // created at
-        created_at.setText(String.valueOf(m.getCreated_at()));
+        //created_at.setText(String.valueOf(m.getCreated_at()));
 
 
         return convertView;

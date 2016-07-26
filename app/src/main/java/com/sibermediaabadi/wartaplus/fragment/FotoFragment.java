@@ -32,7 +32,6 @@ public class FotoFragment extends Fragment {
     private static final String TAG = FotoFragment.class.getSimpleName();
 
     // Movies json url
-    //private static final String url = "http://stopnarkoba.id/service/artikels?page=";
     private Integer url_page_default = 1;
     private List<foto> fotoList = new ArrayList<foto>();
     private ListView listView;

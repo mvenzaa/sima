@@ -40,13 +40,10 @@ public class FotoFragment extends Fragment {
     // Log tag
     private static final String TAG = FotoFragment.class.getSimpleName();
 
-    // Movies json url
-<<<<<<< HEAD
-    private Integer url_page_default = 1;
-=======
+
     //private static final String url = "http://stopnarkoba.id/service/artikels?page=";
-    private Integer url_page_default = 0;
->>>>>>> upstream/master
+    private Integer url_page_default;
+
     private List<foto> fotoList = new ArrayList<foto>();
     private ListView listView;
     private FotoListAdapter adapter;
@@ -64,31 +61,30 @@ public class FotoFragment extends Fragment {
 
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_foto, container, false);
-
         listView = (ListView) rootView.findViewById(R.id.list);
         adapter = new FotoListAdapter(getActivity(), fotoList);
         listView.setAdapter(adapter);
-
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
-        listView.setPadding(0, 140, 0, 0);
-        list("default",url_page_default);
+        listView.setPadding(0, 70, 0, 0);
+        url_page_default = 0;
+        list("default", url_page_default);
 
 
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
-                        listView.setPadding(0, 140, 0, 0);
+                        listView.setPadding(0, 180, 0, 0);
                         url_page_default = 0;
-                        list("refresh",url_page_default);
+                        list("refresh", url_page_default);
                     }
                 });
         ((PullAndLoadListView) listView)
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
                         listView.setPadding(0, 140, 0, 0);
-                        url_page_default = url_page_default + 1;
-                        list("loadmore",url_page_default);
+                        url_page_default += 1;
+                        list("loadmore", url_page_default);
                     }
                 });
 
@@ -108,57 +104,53 @@ public class FotoFragment extends Fragment {
 
     }
 
-    public void list(final String type,final int page) {
+    public void list(final String type, final int page) {
         // Creating volley request obj
 
-        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url+ "/wonderplugins?&page=" + String.valueOf(page),
+        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/wonderplugins?&page=" + String.valueOf(page),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
+                        if (type == "refresh") {
+                            fotoList.clear();
+                        }
 
-
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
                                 JSONObject obj = response.getJSONObject(i);
                                 JSONObject data = obj.getJSONObject("data");
                                 JSONArray slides = data.getJSONArray("slides");
-                                foto a = new foto();
-                                a.setCreated_at(obj.getString("time"));
-                                a.setID(obj.getInt("id"));
-                                // load data array di sini gambar
-                                // ganti x < 1 dengan x < 1 slides.length()
-                                // pasang di detail foto
+                                foto Foto = new foto();
+                                String date = obj.getString("time");
+                                Foto.setCreated_at(date + " WIB");
+                                Foto.setID(obj.getInt("id"));
                                 for (int x = 0; x < 1; x++) {
                                     JSONObject sld = slides.getJSONObject(x);
-                                    a.setImage_small_Url(sld.getString("image"));
-                                    a.setTitle(sld.getString("title"));
+                                    Foto.setImage_small_Url(sld.getString("image"));
+                                    Foto.setTitle(sld.getString("title"));
                                 }
-                                fotoList.add(a);
-
-
-                                adapter.notifyDataSetChanged();
-                                bar.setVisibility(View.GONE);
-
-
-
-                            } catch (JSONException e) {
-
-                                e.printStackTrace();
-                            }
-
-                            adapter.notifyDataSetChanged();
-                            bar.setVisibility(View.GONE);
-
-
-                            if (type == "refresh") {
-                                ((PullAndLoadListView) listView).onRefreshComplete();
-                            } else {
-
-                                ((PullAndLoadListView) listView).onLoadMoreComplete();
+                                fotoList.add(Foto);
 
                             }
+
+
+                        } catch (JSONException e) {
+
+                            e.printStackTrace();
+                        }
+
+                        adapter.notifyDataSetChanged();
+                        bar.setVisibility(View.GONE);
+
+                        if (type == "refresh") {
+                            ((PullAndLoadListView) listView).onRefreshComplete();
+                        } else {
+
+                            ((PullAndLoadListView) listView).onLoadMoreComplete();
 
                         }
+
+
                     }
 
                 }, new Response.ErrorListener() {

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -40,15 +39,18 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:orientation="vertical">
 
-                <com.android.volley.toolbox.NetworkImageView
-                    android:id="@+id/featured_image"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:cropToPadding="false"
-                    android:scaleType="centerCrop"
-                    />
+                    android:minHeight="220dp"
+                    android:orientation="horizontal">
 
+                    <com.flaviofaria.kenburnsview.KenBurnsView
+                        android:id="@+id/featured_image"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" />
+
+                </LinearLayout>
             </RelativeLayout>
 
             <LinearLayout
@@ -73,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/ID"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
 
                 <TextView
@@ -82,10 +84,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ID"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="1dip"
                     android:layout_marginRight="10dp"
-                    android:textSize="24dp"
+                    android:layout_marginTop="1dip"
                     android:textColor="#000000"
+                    android:textSize="24dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -94,11 +96,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/title"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="1dip"
                     android:layout_marginRight="10dp"
-                    android:textSize="@dimen/content"
+                    android:layout_marginTop="1dip"
                     android:textColor="#000000"
-                    />
+                    android:textSize="@dimen/content" />
 
 
                 <TextView
@@ -106,10 +107,10 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/author"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
                     android:textColor="#333333"
                     android:textSize="17dp" />
 

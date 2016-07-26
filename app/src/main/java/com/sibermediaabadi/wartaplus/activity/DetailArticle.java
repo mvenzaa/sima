@@ -1,7 +1,7 @@
 package com.sibermediaabadi.wartaplus.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,22 +11,24 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.NetworkImageView;
+import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.nirhart.parallaxscroll.views.ParallaxScrollView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.assist.ImageSize;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
 import com.sibermediaabadi.wartaplus.app.AppController;
-import com.sibermediaabadi.wartaplus.model.article;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,14 +41,10 @@ public class DetailArticle extends AppCompatActivity {
     private String id;
 
     private TextView ID, title, content, date, author;
+    private String share_link,share_title;
 
-    // Log tag
-    private static final String TAG = DetailArticle.class.getSimpleName();
 
-    NetworkImageView image;
-    //private ArticleDetailAdapter adapter;
 
-    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
     ProgressBar bar;
     ParallaxScrollView content_artikel;
@@ -72,7 +70,7 @@ public class DetailArticle extends AppCompatActivity {
         title = (TextView)findViewById(R.id.title);
         content = (TextView)findViewById(R.id.content);
         date = (TextView)findViewById(R.id.date);
-        image = (NetworkImageView)findViewById(R.id.featured_image);
+
         author = (TextView)findViewById(R.id.author);
 
 
@@ -94,17 +92,58 @@ public class DetailArticle extends AppCompatActivity {
                         try {
 
                             JSONObject featured_image = response.getJSONObject("featured_image");
-                            JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
-                            JSONObject sizes = attachment_meta.getJSONObject("sizes");
-                            JSONObject medium = sizes.getJSONObject("medium");
+//                            JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
+//                            JSONObject sizes = attachment_meta.getJSONObject("sizes");
+//                            JSONObject large = sizes.getJSONObject("large");
 
 
                             title.setText(response.getString("title"));
-                            date.setText(response.getString("date"));
+                            String dateSource = response.getString("date");
+                            String replacedDate = dateSource.replace("T", " ");
+                            date.setText(replacedDate + " WIB");
                             content.setText(Html.fromHtml(response.getString("content")));
-                            //imageLoader.get(response.getString("source"), ImageLoader.getImageListener(image,
-                            //        R.mipmap.ic_launcher, R.mipmap.ic_launcher));
-                            //image.setImageUrl(response.getString("file"), imageLoader);
+
+                            // SHARE LINK
+                            share_link = response.getString("link");
+                            share_title =  response.getString("title");
+
+                            final KenBurnsView image_large = (KenBurnsView) findViewById(R.id.featured_image);
+//                            final String image_url = featured_image.getString("source");
+//                            final String detail = response.getString("detail_foto");
+
+
+                            ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(DetailArticle.this).build();
+                            ImageLoader.getInstance().init(config);
+                            ImageLoader imageLoader = ImageLoader.getInstance();
+
+                            DisplayImageOptions options = new DisplayImageOptions.Builder()
+                                    .resetViewBeforeLoading(false)  // default
+                                    .delayBeforeLoading(0)
+                                    .cacheInMemory(false) // default
+                                    .cacheOnDisk(false) // default
+                                    .considerExifParams(false) // default
+                                    .imageScaleType(ImageScaleType.EXACTLY) // default
+                                    .bitmapConfig(Bitmap.Config.ARGB_8888) // default
+                                    .build();
+
+                            ImageSize targetSize = new ImageSize(600, 500); // result Bitmap will be fit to this size
+                            imageLoader.loadImage(featured_image.getString("source"), targetSize, options, new SimpleImageLoadingListener() {
+                                @Override
+                                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+
+                                    image_large.setImageBitmap(loadedImage);
+//                                    image_large.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+////                                        public void onClick(View view) {
+////                                            Intent i = new Intent(getApplicationContext(), DetailArticleFoto.class);
+////                                            i.putExtra("detail", detail);
+////                                            i.putExtra("image_url", image_url);
+////                                            startActivity(i);
+////
+////                                        }
+//                                    });
+                                }
+                            });
 
                             bar.setVisibility(View.GONE);
                             content_artikel.setVisibility(View.VISIBLE);
@@ -143,12 +182,12 @@ public class DetailArticle extends AppCompatActivity {
             case R.id.action_share:
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "");
-                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "http://www.wartaplus.com/");
+                intent.putExtra(Intent.EXTRA_TEXT, share_link);
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, share_title);
                 startActivity(Intent.createChooser(intent, "Share"));
                 return true;
             case R.id.action_visit:
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wartaplus.com/"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(share_link));
                 startActivity(browserIntent);
                 return true;
         }

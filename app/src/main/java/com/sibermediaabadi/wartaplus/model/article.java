@@ -2,21 +2,21 @@ package com.sibermediaabadi.wartaplus.model;
 
 public class article {
     private int ID;
-    String title, image_small_Url;
+    String title, featured_image_Url;
     String content;
-    String created_at;
+    String date;
 
 
 
     public article(){
     }
 
-    public article(int ID, String name, String content, String created_at, String image_small_Url) {
+    public article(int ID, String name, String content, String date, String featured_image_Url) {
         this.ID = ID;
         this.title = name;
         this.content = content;
-        this.created_at = created_at;
-        this.image_small_Url = image_small_Url;
+        this.date = date;
+        this.featured_image_Url = featured_image_Url;
 
     }
 
@@ -36,12 +36,12 @@ public class article {
         this.title = title;
     }
 
-    public String getImage_small_Url() {
-        return image_small_Url;
+    public String getFeatured_image_Url() {
+        return featured_image_Url;
     }
 
-    public void setImage_small_Url(String image_small_Url) {
-        this.image_small_Url = image_small_Url;
+    public void setFeatured_image_Url(String featured_image_Url) {
+        this.featured_image_Url = featured_image_Url;
     }
 
     public String getContent() {
@@ -52,12 +52,12 @@ public class article {
         this.content = content;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getDate() {
+        return date;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setDate(String date) {
+        this.date = date;
     }
 
 }

@@ -23,6 +23,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.nirhart.parallaxscroll.views.ParallaxScrollView;
+import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.article;
@@ -37,13 +38,11 @@ public class DetailArticle extends AppCompatActivity {
 
     private String id;
 
-    private TextView ID, title, content, created_at, youtube_id, image_small;
+    private TextView ID, title, content, date, author;
 
     // Log tag
     private static final String TAG = DetailArticle.class.getSimpleName();
 
-    // Movies json url
-    //private static final String url = "http://stopnarkoba.id/service/artikels/";
     NetworkImageView image;
     //private ArticleDetailAdapter adapter;
 
@@ -72,8 +71,9 @@ public class DetailArticle extends AppCompatActivity {
         ID = (TextView)findViewById(R.id.ID);
         title = (TextView)findViewById(R.id.title);
         content = (TextView)findViewById(R.id.content);
-        created_at = (TextView)findViewById(R.id.created_at);
-        image = (NetworkImageView)findViewById(R.id.image_small);
+        date = (TextView)findViewById(R.id.date);
+        image = (NetworkImageView)findViewById(R.id.featured_image);
+        author = (TextView)findViewById(R.id.author);
 
 
         Bundle extras = getIntent().getExtras();
@@ -84,17 +84,47 @@ public class DetailArticle extends AppCompatActivity {
         Log.d("SN", id);
 
 
-        for (int i = 0; i < 20; i++) {
+        // Creating volley request obj
+        JsonObjectRequest movieReq = new JsonObjectRequest(Request.Method.GET,Config.main_url+"/posts/"+id,null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //Log.d("SN", response.toString());
 
-            title.setText("KPU Papua Akan Sidak ke Kabupaten Sarmi");
-            created_at.setText("15 Juli 2016 15:00 WIB");
-            content.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur quis ante ut viverra. Quisque iaculis nisl nec erat iaculis, nec facilisis massa dapibus. Sed sodales est at eros fringilla, lobortis venenatis libero dictum. Donec et eleifend dui. Nulla ac augue sit amet nibh consequat condimentum. Praesent venenatis purus quam, eget pretium dolor dictum nec. Aliquam at libero pharetra, pulvinar diam sit amet, maximus sapien. Phasellus nec vehicula quam. Curabitur quam nisi, vulputate vel tincidunt pretium, laoreet quis sem. Proin finibus sagittis sollicitudin. Praesent pretium, est sed maximus congue, sapien purus tincidunt purus, et semper eros risus ac urna. Pellentesque interdum, nulla ut pretium commodo, sapien velit mattis lacus, id fermentum felis urna nec lorem. Duis dignissim lorem vitae libero efficitur, sodales dapibus justo placerat.");
-            image.setImageUrl(("http://www.wartaplus.com/wp-content/uploads/2016/07/Ketua-Komisi-Pemilihan-Umum-KPU-Prov.Papua-Adam-Arisoi.-Foto-Icahd.-660x330.jpg"), imageLoader);
+                        try {
 
-            bar.setVisibility(View.GONE);
-            content_artikel.setVisibility(View.VISIBLE);
+                            JSONObject featured_image = response.getJSONObject("featured_image");
+                            JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
+                            JSONObject sizes = attachment_meta.getJSONObject("sizes");
+                            JSONObject medium = sizes.getJSONObject("medium");
 
-        }
+
+                            title.setText(response.getString("title"));
+                            date.setText(response.getString("date"));
+                            content.setText(Html.fromHtml(response.getString("content")));
+                            //imageLoader.get(response.getString("source"), ImageLoader.getImageListener(image,
+                            //        R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+                            //image.setImageUrl(response.getString("file"), imageLoader);
+
+                            bar.setVisibility(View.GONE);
+                            content_artikel.setVisibility(View.VISIBLE);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            //Log.d("SN", response.toString());
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                bar.setVisibility(View.GONE);
+            }
+        });
+
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(movieReq, "SN");
     }
 
     @Override

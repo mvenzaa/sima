@@ -61,18 +61,6 @@ public class FotoListAdapter extends BaseAdapter {
         NetworkImageView image_small = (NetworkImageView) convertView
                 .findViewById(R.id.image_small);
 
-        NetworkImageView thumbnail1 = (NetworkImageView) convertView
-                .findViewById(R.id.thumbnail1);
-
-        NetworkImageView thumbnail2 = (NetworkImageView) convertView
-                .findViewById(R.id.thumbnail2);
-
-        NetworkImageView thumbnail3 = (NetworkImageView) convertView
-                .findViewById(R.id.thumbnail3);
-
-        NetworkImageView thumbnail4 = (NetworkImageView) convertView
-                .findViewById(R.id.thumbnail4);
-
 
         TextView ID = (TextView) convertView.findViewById(R.id.ID);
         TextView title = (TextView) convertView.findViewById(R.id.title);
@@ -84,17 +72,6 @@ public class FotoListAdapter extends BaseAdapter {
         // image original
         image_small.setImageUrl(m.getImage_small_Url(), imageLoader);
 
-        // thumbnail1
-        thumbnail1.setImageUrl(m.getThumbnail1(), imageLoader);
-
-        // thumbnail2
-        thumbnail2.setImageUrl(m.getThumbnail2(), imageLoader);
-
-        // thumbnail3
-        thumbnail3.setImageUrl(m.getThumbnail3(), imageLoader);
-
-        // thumbnail4
-        thumbnail4.setImageUrl(m.getThumbnail4(), imageLoader);
 
         // ID
         ID.setText(String.valueOf(m.getID()));

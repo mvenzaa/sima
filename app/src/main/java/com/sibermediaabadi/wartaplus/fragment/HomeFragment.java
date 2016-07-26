@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+<<<<<<< HEAD
 import android.widget.Toast;
 
 import com.android.volley.NoConnectionError;
@@ -20,6 +21,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+=======
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+>>>>>>> upstream/master
 import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
 import com.sibermediaabadi.wartaplus.Config;
@@ -59,6 +66,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+<<<<<<< HEAD
 
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
@@ -90,6 +98,37 @@ public class HomeFragment extends Fragment {
 
                     }
                 });
+=======
+    // Inflate the layout for this fragment
+    rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+    listView = (ListView) rootView.findViewById(R.id.list);
+    adapter = new ListAdapter(getActivity(), articleList);
+    listView.setAdapter(adapter);
+
+    bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
+    bar.setVisibility(View.VISIBLE);
+    list("default",url_page_default);
+        listView.setPadding(0, 140, 0, 0);
+
+
+    ((PullAndLoadListView) listView)
+            .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+                public void onRefresh() {
+                    listView.setPadding(0, 140, 0, 0);
+                    url_page_default = 1;
+                    list("refresh",url_page_default);
+                }
+            });
+    ((PullAndLoadListView) listView)
+            .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
+                public void onLoadMore() {
+                    listView.setPadding(0, 140, 0, 0);
+                    url_page_default = url_page_default + 1;
+                    list("loadmore",url_page_default);
+                }
+            });
+>>>>>>> upstream/master
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -107,6 +146,11 @@ public class HomeFragment extends Fragment {
     }
 
     public void list(final String type,final int page) {
+<<<<<<< HEAD
+=======
+        // Creating volley request obj
+
+>>>>>>> upstream/master
         JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url+ "/posts?filter[posts_per_page]=10&page=" + String.valueOf(page),
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -114,18 +158,29 @@ public class HomeFragment extends Fragment {
                         for (int i = 0; i < response.length(); i++) {
                             try {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
                                 JSONObject obj = response.getJSONObject(i);
                                 JSONObject featured_image = obj.getJSONObject("featured_image");
                                 JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
                                 JSONObject sizes = attachment_meta.getJSONObject("sizes");
                                 JSONObject medium = sizes.getJSONObject("medium");
+<<<<<<< HEAD
 
                                 article b = new article();
                                 b.setFeatured_image_Url(featured_image.getString("source"));
                                 b.setID(obj.getInt("ID"));
                                 b.setTitle(obj.getString("title"));
                                 b.setDate(obj.getString("date"));
+=======
+                                article b = new article();
+                                b.setImage_small_Url(featured_image.getString("source"));
+                                b.setID(obj.getInt("ID"));
+                                b.setTitle(obj.getString("title"));
+                                b.setCreated_at(obj.getString("date"));
+>>>>>>> upstream/master
                                 articleList.add(b);
 
                             } catch (JSONException e) {
@@ -156,8 +211,11 @@ public class HomeFragment extends Fragment {
         });
 
         AppController.getInstance().addToRequestQueue(movieReq, "SN");
+<<<<<<< HEAD
     }
 
 }
 
+=======
+>>>>>>> upstream/master
 

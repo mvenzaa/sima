@@ -69,7 +69,10 @@ public class FotoListAdapter extends BaseAdapter {
 
         foto m = fotoItems.get(position);
 
-        // image original
+
+
+        imageLoader.get(m.getImage_small_Url(), ImageLoader.getImageListener(image_small,
+                R.mipmap.icon_medium, R.mipmap.icon_medium));
         image_small.setImageUrl(m.getImage_small_Url(), imageLoader);
 
 

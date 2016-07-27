@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -22,6 +23,7 @@ import com.sibermediaabadi.wartaplus.activity.DetailFoto;
 import com.sibermediaabadi.wartaplus.adapter.FotoListAdapter;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.foto;
+import com.sibermediaabadi.wartaplus.util.ConnectionDetector;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,10 +42,33 @@ public class FotoFragment extends Fragment {
     // Log tag
     private static final String TAG = FotoFragment.class.getSimpleName();
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    // Movies json url
+    private Integer url_page_default = 0;
+=======
+=======
+>>>>>>> upstream/master
+=======
+>>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
     //private static final String url = "http://stopnarkoba.id/service/artikels?page=";
     private Integer url_page_default;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
+>>>>>>> upstream/master
+=======
+>>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     private List<foto> fotoList = new ArrayList<foto>();
     private ListView listView;
     private FotoListAdapter adapter;
@@ -66,9 +91,31 @@ public class FotoFragment extends Fragment {
         listView.setAdapter(adapter);
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        list("default",url_page_default);
+=======
         listView.setPadding(0, 70, 0, 0);
         url_page_default = 0;
         list("default", url_page_default);
+>>>>>>> upstream/master
+=======
+        listView.setPadding(0, 70, 0, 0);
+        url_page_default = 0;
+        list("default", url_page_default);
+>>>>>>> upstream/master
+=======
+        listView.setPadding(0, 70, 0, 0);
+        url_page_default = 0;
+        list("default", url_page_default);
+>>>>>>> upstream/master
+=======
+        listView.setPadding(0, 70, 0, 0);
+        url_page_default = 0;
+        list("default", url_page_default);
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
 
         ((PullAndLoadListView) listView)
@@ -106,6 +153,7 @@ public class FotoFragment extends Fragment {
 
     public void list(final String type, final int page) {
         // Creating volley request obj
+        noInternet();
 
         JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/wonderplugins?&page=" + String.valueOf(page),
                 new Response.Listener<JSONArray>() {
@@ -163,6 +211,20 @@ public class FotoFragment extends Fragment {
         AppController.getInstance().addToRequestQueue(movieReq, "SN");
 
 
+    }
+
+    public void noInternet()
+    {
+        ConnectionDetector cd = new ConnectionDetector(getActivity());
+        // Check if Internet present
+        if (!cd.isConnectingToInternet()) {
+            // Internet Connection is not present
+            Toast.makeText(getActivity(), "Please connect to working Internet connection",
+                    Toast.LENGTH_LONG).show();
+            // stop executing code by return
+
+            return;
+        }
     }
 
 }

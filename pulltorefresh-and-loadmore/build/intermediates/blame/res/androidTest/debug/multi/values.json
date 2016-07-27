@@ -1,6 +1,19 @@
 [
     {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        "outputFile": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
+=======
+=======
+>>>>>>> upstream/master
+=======
+>>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
         "outputFile": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
+>>>>>>> upstream/master
         "map": [
             {
                 "to": {
@@ -11,7 +24,11 @@
                     "endOffset": 90
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +47,11 @@
                     "endOffset": 140
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +70,11 @@
                     "endOffset": 181
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +93,11 @@
                     "endOffset": 222
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +116,11 @@
                     "endOffset": 268
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +139,11 @@
                     "endOffset": 333
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -125,7 +162,11 @@
                     "endOffset": 411
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -144,7 +185,11 @@
                     "endOffset": 483
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -163,7 +208,11 @@
                     "endOffset": 564
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -182,7 +231,11 @@
                     "endOffset": 611
                 },
                 "from": {
+<<<<<<< HEAD
+                    "file": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+=======
                     "file": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+>>>>>>> upstream/master
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,

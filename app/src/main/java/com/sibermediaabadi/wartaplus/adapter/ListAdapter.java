@@ -66,8 +66,13 @@ public class ListAdapter extends BaseAdapter {
         // getting video data for the row
         article m = articleItems.get(position);
 
-        // image original
+
+        imageLoader.get(m.getFeatured_image_Url(), ImageLoader.getImageListener(featured_image,
+                R.mipmap.icon_medium, R.mipmap.icon_medium));
         featured_image.setImageUrl(m.getFeatured_image_Url(), imageLoader);
+
+        /*// image original
+        featured_image.setImageUrl(m.getFeatured_image_Url(), imageLoader);*/
 
         // ID
         ID.setText(String.valueOf(m.getID()));

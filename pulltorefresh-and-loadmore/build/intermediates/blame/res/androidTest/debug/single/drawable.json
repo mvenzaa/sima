@@ -1,6 +1,20 @@
 [
     {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        "merged": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\costum_progress_bar.xml",
+        "source": "D:\\android\\wartaplus\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\drawable\\costum_progress_bar.xml"
+=======
+=======
+>>>>>>> upstream/master
+=======
+>>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
         "merged": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\costum_progress_bar.xml",
         "source": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\drawable\\costum_progress_bar.xml"
+>>>>>>> upstream/master
     }
 ]

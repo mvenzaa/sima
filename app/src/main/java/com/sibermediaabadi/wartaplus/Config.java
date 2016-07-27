@@ -7,14 +7,18 @@ public class Config {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
 }
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> upstream/master
 =======
@@ -25,3 +29,5 @@ public class Config {
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b

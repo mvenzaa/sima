@@ -13,6 +13,7 @@ import android.widget.TextView;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.widget.Toast;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
@@ -41,6 +42,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 >>>>>>> upstream/master
+=======
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
 import com.sibermediaabadi.wartaplus.Config;
@@ -84,6 +91,7 @@ public class HomeFragment extends Fragment {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> upstream/master
@@ -93,6 +101,9 @@ public class HomeFragment extends Fragment {
 =======
 
 >>>>>>> upstream/master
+=======
+
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
@@ -121,6 +132,7 @@ public class HomeFragment extends Fragment {
                         listView.setPadding(0, 140, 0, 0);
                         url_page_default +=  1;
                         list("loadmore", url_page_default);
+<<<<<<< HEAD
 
                     }
                 });
@@ -132,6 +144,33 @@ public class HomeFragment extends Fragment {
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+
+        // Inflate the layout for this fragment
+        rootView = inflater.inflate(R.layout.fragment_home, container, false);
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
+
+        listView = (ListView) rootView.findViewById(R.id.list);
+        adapter = new ListAdapter(getActivity(), articleList);
+        listView.setAdapter(adapter);
+
+        bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
+        bar.setVisibility(View.VISIBLE);
+        url_page_default = 1;
+        list("default", url_page_default);
+        listView.setPadding(0, 70, 0, 0);
+
+
+        ((PullAndLoadListView) listView)
+                .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+                    public void onRefresh() {
+                        listView.setPadding(0, 180, 0, 0);
+                        url_page_default = 1;
+                        list("refresh", url_page_default);
+                    }
+                });
+<<<<<<< HEAD
+=======
 
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
@@ -155,6 +194,7 @@ public class HomeFragment extends Fragment {
                         list("refresh", url_page_default);
                     }
                 });
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
         ((PullAndLoadListView) listView)
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
@@ -166,11 +206,14 @@ public class HomeFragment extends Fragment {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -187,6 +230,7 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -208,6 +252,8 @@ public class HomeFragment extends Fragment {
 =======
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     public void list(final String type, final int page) {
 
         // Creating volley request obj
@@ -215,15 +261,19 @@ public class HomeFragment extends Fragment {
 
         JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/posts?filter[posts_per_page]=10&page=" + String.valueOf(page),
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         if (type == "refresh") {
                             articleList.clear();
                         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -269,11 +319,24 @@ public class HomeFragment extends Fragment {
 //                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
 //                                JSONObject medium = sizes.getJSONObject("medium");
 >>>>>>> upstream/master
+=======
+
+
+                        try {
+
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject obj = response.getJSONObject(i);
+                                JSONObject featured_image = obj.getJSONObject("featured_image");
+//                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
+//                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
+//                                JSONObject medium = sizes.getJSONObject("medium");
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
                                 article b = new article();
                                 b.setFeatured_image_Url(featured_image.getString("source"));
                                 b.setID(obj.getInt("ID"));
                                 b.setTitle(obj.getString("title"));
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -298,6 +361,11 @@ public class HomeFragment extends Fragment {
                                 String replacedDate = date.replace("T", " ");
                                 b.setDate(replacedDate + " WIB");
 >>>>>>> upstream/master
+=======
+                                String date = obj.getString("date");
+                                String replacedDate = date.replace("T", " ");
+                                b.setDate(replacedDate + " WIB");
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
                                 articleList.add(b);
                             }
@@ -333,6 +401,7 @@ public class HomeFragment extends Fragment {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> upstream/master
     }
@@ -353,6 +422,8 @@ public class HomeFragment extends Fragment {
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     }
 
 }
@@ -360,6 +431,7 @@ public class HomeFragment extends Fragment {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> upstream/master
@@ -369,4 +441,7 @@ public class HomeFragment extends Fragment {
 =======
 
 >>>>>>> upstream/master
+=======
+
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 

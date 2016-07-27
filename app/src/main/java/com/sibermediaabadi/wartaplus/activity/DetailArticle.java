@@ -94,6 +94,7 @@ public class DetailArticle extends AppCompatActivity {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -127,6 +128,15 @@ public class DetailArticle extends AppCompatActivity {
 
                             title.setText(response.getString("title"));
 >>>>>>> upstream/master
+=======
+                            JSONObject featured_image = response.getJSONObject("featured_image");
+//                            JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
+//                            JSONObject sizes = attachment_meta.getJSONObject("sizes");
+//                            JSONObject large = sizes.getJSONObject("large");
+
+
+                            title.setText(response.getString("title"));
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                             String dateSource = response.getString("date");
                             String replacedDate = dateSource.replace("T", " ");
                             date.setText(replacedDate + " WIB");
@@ -175,11 +185,14 @@ public class DetailArticle extends AppCompatActivity {
                             });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
                             bar.setVisibility(View.GONE);
                             content_artikel.setVisibility(View.VISIBLE);

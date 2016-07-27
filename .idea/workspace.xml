@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -20,6 +21,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="SN" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
@@ -52,6 +55,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -122,6 +126,11 @@
       <file leaf-file-name="DetailArticle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailArticle.java">
           <provider selected="true" editor-type-id="text-editor">
+=======
+      <file leaf-file-name="DetailArticle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailArticle.java">
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
             <state vertical-scroll-proportion="0.0">
               <caret line="184" column="8" selection-start-line="184" selection-start-column="8" selection-end-line="185" selection-end-column="83" />
               <folding>
@@ -129,11 +138,15 @@
                 <element signature="e#5476#6475#0" expanded="true" />
                 <element signature="e#6474#6475#0" expanded="true" />
               </folding>
+<<<<<<< HEAD
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="KategoriFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/KategoriFragment.java">
@@ -159,12 +172,20 @@
       <file leaf-file-name="DetailFoto.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailFoto.java">
           <provider selected="true" editor-type-id="text-editor">
+=======
+      <file leaf-file-name="DetailFoto.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailFoto.java">
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
             <state vertical-scroll-proportion="0.575">
               <caret line="224" column="83" selection-start-line="224" selection-start-column="83" selection-end-line="224" selection-end-column="83" />
               <folding>
                 <element signature="e#3591#3607#0" expanded="true" />
               </folding>
+<<<<<<< HEAD
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
             </state>
           </provider>
         </entry>
@@ -181,6 +202,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/FotoFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
               <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
 >>>>>>> upstream/master
 =======
@@ -193,16 +215,22 @@
 >>>>>>> upstream/master
               <folding />
 =======
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <caret line="82" column="44" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
               <folding>
                 <element signature="e#5037#6997#0" expanded="true" />
                 <element signature="e#6996#6997#0" expanded="true" />
               </folding>
+<<<<<<< HEAD
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -218,11 +246,19 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
 >>>>>>> upstream/master
+=======
+      <file leaf-file-name="FotoFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/FotoFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="SearchFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/SearchFragment.java">
@@ -247,6 +283,11 @@
       <file leaf-file-name="detail_article.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_article.xml">
           <provider selected="true" editor-type-id="text-editor">
+=======
+      <file leaf-file-name="detail_article.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_article.xml">
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
             <state vertical-scroll-proportion="-8.793103">
               <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
               <folding>
@@ -258,6 +299,7 @@
           </provider>
           <provider editor-type-id="android-designer">
             <state />
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> upstream/master
 =======
@@ -278,11 +320,14 @@
           <provider editor-type-id="android-designer">
             <state />
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -299,12 +344,15 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
   <component name="GradleLocalSettings">
     <option name="availableProjects">
       <map>
         <entry>
           <key>
             <ExternalProjectPojo>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -318,6 +366,9 @@
 =======
               <option name="name" value="sima" />
 >>>>>>> upstream/master
+=======
+              <option name="name" value="sima" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
@@ -335,6 +386,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <option name="name" value="wartaplus" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
@@ -347,6 +399,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="name" value=":pulltorefresh-and-loadmore" />
                 <option name="path" value="$PROJECT_DIR$/pulltorefresh-and-loadmore" />
               </ExternalProjectPojo>
@@ -356,11 +410,14 @@
               </ExternalProjectPojo>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
             </list>
           </value>
         </entry>
@@ -379,6 +436,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <option name="description" value="Displays the components produced by root project 'wartaplus'. [incubating]" />
 =======
                 <option name="description" value="Displays the components produced by root project 'sima'. [incubating]" />
@@ -389,10 +447,14 @@
 =======
                 <option name="description" value="Displays the components produced by root project 'sima'. [incubating]" />
 >>>>>>> upstream/master
+=======
+                <option name="description" value="Displays the components produced by root project 'sima'. [incubating]" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="components" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -406,10 +468,14 @@
 =======
                 <option name="description" value="Displays all dependencies declared in root project 'sima'." />
 >>>>>>> upstream/master
+=======
+                <option name="description" value="Displays all dependencies declared in root project 'sima'." />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -423,6 +489,9 @@
 =======
                 <option name="description" value="Displays the insight into a specific dependency in root project 'sima'." />
 >>>>>>> upstream/master
+=======
+                <option name="description" value="Displays the insight into a specific dependency in root project 'sima'." />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
@@ -440,6 +509,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <option name="description" value="Displays the configuration model of root project 'wartaplus'. [incubating]" />
 =======
                 <option name="description" value="Displays the configuration model of root project 'sima'. [incubating]" />
@@ -450,10 +520,14 @@
 =======
                 <option name="description" value="Displays the configuration model of root project 'sima'. [incubating]" />
 >>>>>>> upstream/master
+=======
+                <option name="description" value="Displays the configuration model of root project 'sima'. [incubating]" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="model" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -467,10 +541,14 @@
 =======
                 <option name="description" value="Displays the sub-projects of root project 'sima'." />
 >>>>>>> upstream/master
+=======
+                <option name="description" value="Displays the sub-projects of root project 'sima'." />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -484,10 +562,14 @@
 =======
                 <option name="description" value="Displays the properties of root project 'sima'." />
 >>>>>>> upstream/master
+=======
+                <option name="description" value="Displays the properties of root project 'sima'." />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="properties" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -501,6 +583,9 @@
 =======
                 <option name="description" value="Displays the tasks runnable from root project 'sima' (some of the displayed tasks may belong to subprojects)." />
 >>>>>>> upstream/master
+=======
+                <option name="description" value="Displays the tasks runnable from root project 'sima' (some of the displayed tasks may belong to subprojects)." />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="tasks" />
               </ExternalTaskPojo>
@@ -923,6 +1008,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <option name="description" value="Prepare wartaplus:library:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareWartaplusLibraryUnspecifiedLibrary" />
@@ -936,6 +1022,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="description" value="Prepare sima:library:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareSimaLibraryUnspecifiedLibrary" />
@@ -946,11 +1034,14 @@
                 <option name="name" value="prepareSimaPulltorefreshAndLoadmoreUnspecifiedLibrary" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1655,6 +1746,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <option name="description" value="Prepare wartaplus:library:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareWartaplusLibraryUnspecifiedLibrary" />
@@ -1668,6 +1760,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                 <option name="description" value="Prepare sima:library:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareSimaLibraryUnspecifiedLibrary" />
@@ -1678,11 +1772,14 @@
                 <option name="name" value="prepareSimaPulltorefreshAndLoadmoreUnspecifiedLibrary" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -3034,6 +3131,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <entry key="D:\android\wartaplus" value="8715112129981" />
 =======
         <entry key="C:\Users\ASUS\Documents\android-project\WORK\wartplus\sima" value="8816672922264" />
@@ -3044,6 +3142,9 @@
 =======
         <entry key="C:\Users\ASUS\Documents\android-project\WORK\wartplus\sima" value="8816672922264" />
 >>>>>>> upstream/master
+=======
+        <entry key="C:\Users\ASUS\Documents\android-project\WORK\wartplus\sima" value="8816672922264" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3264,6 +3365,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.flaviofaria/kenburnsview/1.0.7/ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1/kenburnsview-1.0.7.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar" />
@@ -3276,6 +3378,10 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.flaviofaria/kenburnsview/1.0.7/ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1/kenburnsview-1.0.7.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar" />
 >>>>>>> upstream/master
+=======
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.flaviofaria/kenburnsview/1.0.7/ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1/kenburnsview-1.0.7.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/cardview-v7/23.3.0/cardview-v7-23.3.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library-aar/1.0.0/cc8071e1ce2c478bc9974c1044c3f6f0b2a96bb0/library-aar-1.0.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.nirhart/parallaxscroll/1.0/700e5ed79110b1387ef0116996a54112e93b2ead/parallaxscroll-1.0.aar" />
@@ -3557,6 +3663,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.8-all/ah86jmo43de9lfa8xg9ux3c4h/gradle-2.8/src/announce" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.8-all/ah86jmo43de9lfa8xg9ux3c4h/gradle-2.8/src/antlr" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.8-all/ah86jmo43de9lfa8xg9ux3c4h/gradle-2.8/src/base-services" />
@@ -3675,6 +3782,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/announce" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/antlr" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/base-services" />
@@ -3790,11 +3899,14 @@
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/ivy-2.2.0.jar" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -3815,6 +3927,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailArticle.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/adapter/ListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/adapter/FotoListAdapter.java" />
@@ -3831,6 +3944,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
         <option value="$PROJECT_DIR$/app/src/main/res/layout/article_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_foto.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
@@ -3842,11 +3957,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailFoto.java" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
       </list>
     </option>
   </component>
@@ -3885,6 +4003,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane" />
@@ -3894,11 +4013,14 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
       <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3912,6 +4034,9 @@
 =======
               <option name="myItemId" value="sima" />
 >>>>>>> upstream/master
+=======
+              <option name="myItemId" value="sima" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -3924,6 +4049,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <option name="myItemId" value="wartaplus" />
 =======
               <option name="myItemId" value="sima" />
@@ -3934,6 +4060,9 @@
 =======
               <option name="myItemId" value="sima" />
 >>>>>>> upstream/master
+=======
+              <option name="myItemId" value="sima" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3942,6 +4071,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <option name="myItemId" value="wartaplus" />
 =======
               <option name="myItemId" value="sima" />
@@ -3952,6 +4082,9 @@
 =======
               <option name="myItemId" value="sima" />
 >>>>>>> upstream/master
+=======
+              <option name="myItemId" value="sima" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -3961,6 +4094,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3970,6 +4104,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
@@ -3998,11 +4134,14 @@
               <option name="myItemId" value="sima" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -4019,6 +4158,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <option name="myItemId" value="wartaplus" />
 =======
               <option name="myItemId" value="sima" />
@@ -4029,6 +4169,9 @@
 =======
               <option name="myItemId" value="sima" />
 >>>>>>> upstream/master
+=======
+              <option name="myItemId" value="sima" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -4049,12 +4192,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <option name="myItemId" value="wartaplus" />
 =======
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <option name="myItemId" value="sima" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
@@ -4080,11 +4226,14 @@
               <option name="myItemId" value="sima" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -4107,6 +4256,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         </subPane>
       </pane>
 =======
@@ -4150,6 +4300,20 @@
         </subPane>
       </pane>
 >>>>>>> upstream/master
+=======
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sima" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
@@ -4160,6 +4324,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4180,6 +4345,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="FAAZCY32E060" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_4_7_WXGA" />
 >>>>>>> upstream/master
@@ -4324,6 +4491,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <changelist id="d91463b1-c11b-4ab9-86a9-d2d1efd57146" name="Default" comment="" />
       <created>1469521612763</created>
       <option name="number" value="Default" />
@@ -4331,10 +4499,13 @@
 =======
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
       <changelist id="909ef24d-5efa-4925-884b-2f747d6c188c" name="Default" comment="" />
       <created>1469522429545</created>
       <option name="number" value="Default" />
       <updated>1469522429545</updated>
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> upstream/master
 =======
@@ -4345,6 +4516,8 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     </task>
     <servers />
   </component>
@@ -4416,11 +4589,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -4431,6 +4607,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4494,21 +4671,27 @@
 =======
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4521,17 +4704,22 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/model/article.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="39" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="39" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
           <folding />
         </state>
       </provider>
@@ -4541,6 +4729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_foto.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4558,6 +4747,10 @@
         <state vertical-scroll-proportion="-0.5862069">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="10" selection-end-column="63" />
 >>>>>>> upstream/master
+=======
+        <state vertical-scroll-proportion="-0.5862069">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="10" selection-end-column="63" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
           <folding />
         </state>
       </provider>
@@ -4567,6 +4760,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailFoto.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <state vertical-scroll-proportion="3.1571429">
@@ -4625,6 +4819,10 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+        <state vertical-scroll-proportion="-7.034483">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
           <folding />
         </state>
       </provider>
@@ -4632,6 +4830,7 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4663,6 +4862,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/adapter/ListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -4671,8 +4875,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5862069">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="10" selection-end-column="63" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_foto.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5862069">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="10" selection-end-column="63" />
 >>>>>>> upstream/master
 =======
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4681,6 +4900,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/article_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4695,10 +4915,13 @@
     </entry>
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/article_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+<<<<<<< HEAD
 =======
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -4711,6 +4934,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
           <folding />
 >>>>>>> upstream/master
         </state>
@@ -4725,6 +4950,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/KategoriFragment.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -4742,6 +4968,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
 >>>>>>> upstream/master
+=======
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
           <folding />
 =======
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_article.xml">
@@ -4760,6 +4992,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/SearchFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4774,6 +5007,10 @@
 =======
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_article.xml">
       <provider selected="true" editor-type-id="text-editor">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_article.xml">
+      <provider selected="true" editor-type-id="text-editor">
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
         <state vertical-scroll-proportion="-8.793103">
           <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
           <folding>
@@ -4781,7 +5018,10 @@
             <element signature="e#3086#3097#0" expanded="true" />
             <element signature="e#4161#4177#0" expanded="true" />
           </folding>
+<<<<<<< HEAD
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
         </state>
       </provider>
     </entry>
@@ -4802,6 +5042,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/FotoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4829,6 +5070,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="44" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
+          <folding>
+            <element signature="e#5037#6997#0" expanded="true" />
+            <element signature="e#6996#6997#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/FotoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
           <folding />
 =======
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/fragment/HomeFragment.java">
@@ -4862,6 +5120,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailFoto.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -4927,6 +5186,22 @@
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailArticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="184" column="8" selection-start-line="184" selection-start-column="8" selection-end-line="185" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5476#6475#0" expanded="true" />
+            <element signature="e#6474#6475#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sibermediaabadi/wartaplus/activity/DetailFoto.java">
+      <provider selected="true" editor-type-id="text-editor">
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
         <state vertical-scroll-proportion="0.575">
           <caret line="224" column="83" selection-start-line="224" selection-start-column="83" selection-end-line="224" selection-end-column="83" />
           <folding>
@@ -4934,11 +5209,14 @@
           </folding>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
+=======
+>>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
         </state>
       </provider>
     </entry>

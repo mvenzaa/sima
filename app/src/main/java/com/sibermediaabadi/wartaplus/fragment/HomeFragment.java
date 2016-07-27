@@ -57,62 +57,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
-        listView = (ListView) rootView.findViewById(R.id.list);
-        adapter = new ListAdapter(getActivity(), articleList);
-        listView.setAdapter(adapter);
-
-        bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
-        bar.setVisibility(View.VISIBLE);
-        url_page_default = 0;
-        list("default", url_page_default);
-
-
-        ((PullAndLoadListView) listView)
-                .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-                    public void onRefresh() {
-                        listView.setPadding(0, 140, 0, 0);
-                        url_page_default = 0;
-                        list("refresh", url_page_default);
-                    }
-                });
-        ((PullAndLoadListView) listView)
-                .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
-                    public void onLoadMore() {
-                        listView.setPadding(0, 140, 0, 0);
-                        url_page_default +=  1;
-                        list("loadmore", url_page_default);
-
-
-                    }
-                });
-
-
-        // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
-
-        listView = (ListView) rootView.findViewById(R.id.list);
-        adapter = new ListAdapter(getActivity(), articleList);
-        listView.setAdapter(adapter);
-
-        bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
-        bar.setVisibility(View.VISIBLE);
-        url_page_default = 1;
-        list("default", url_page_default);
-        listView.setPadding(0, 70, 0, 0);
-
-
-        ((PullAndLoadListView) listView)
-                .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-                    public void onRefresh() {
-                        listView.setPadding(0, 180, 0, 0);
-                        url_page_default = 1;
-                        list("refresh", url_page_default);
-                    }
-                });
 
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
@@ -170,8 +114,6 @@ public class HomeFragment extends Fragment {
         noInternet();
 
         // Creating volley request obj
-
-
         JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/posts?filter[posts_per_page]=10&page=" + String.valueOf(page),
 
                 new Response.Listener<JSONArray>() {

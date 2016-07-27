@@ -42,33 +42,11 @@ public class FotoFragment extends Fragment {
     // Log tag
     private static final String TAG = FotoFragment.class.getSimpleName();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     // Movies json url
     private Integer url_page_default = 0;
-=======
-=======
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
-=======
->>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
 
-    //private static final String url = "http://stopnarkoba.id/service/artikels?page=";
-    private Integer url_page_default;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
-=======
->>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
+
     private List<foto> fotoList = new ArrayList<foto>();
     private ListView listView;
     private FotoListAdapter adapter;
@@ -91,31 +69,13 @@ public class FotoFragment extends Fragment {
         listView.setAdapter(adapter);
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        list("default",url_page_default);
-=======
+
+
         listView.setPadding(0, 70, 0, 0);
         url_page_default = 0;
         list("default", url_page_default);
->>>>>>> upstream/master
-=======
-        listView.setPadding(0, 70, 0, 0);
-        url_page_default = 0;
-        list("default", url_page_default);
->>>>>>> upstream/master
-=======
-        listView.setPadding(0, 70, 0, 0);
-        url_page_default = 0;
-        list("default", url_page_default);
->>>>>>> upstream/master
-=======
-        listView.setPadding(0, 70, 0, 0);
-        url_page_default = 0;
-        list("default", url_page_default);
->>>>>>> f6db0daf6fb0cbdc3c7fc8d975ea12c839607b0b
+
+
 
 
         ((PullAndLoadListView) listView)

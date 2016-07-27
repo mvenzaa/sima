@@ -3,6 +3,7 @@ package com.sibermediaabadi.wartaplus.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public class HomeFragment extends Fragment {
     private static final String TAG = HomeFragment.class.getSimpleName();
 
     // Movies json url
-    private Integer url_page_default = 0;
+    private Integer url_page_default;
     private List<article> articleList = new ArrayList<article>();
     private ListView listView;
     private ListAdapter adapter;
@@ -67,6 +68,7 @@ public class HomeFragment extends Fragment {
 
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
+
         url_page_default = 1;
         list("default", url_page_default);
         listView.setPadding(0, 70, 0, 0);
@@ -78,6 +80,7 @@ public class HomeFragment extends Fragment {
                         listView.setPadding(0, 180, 0, 0);
                         url_page_default = 1;
                         list("refresh", url_page_default);
+                        Log.d("SN", "refresh");
                     }
                 });
 
@@ -85,8 +88,9 @@ public class HomeFragment extends Fragment {
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
                         listView.setPadding(0, 180, 0, 0);
-                        url_page_default = url_page_default + 1;
+                        url_page_default += 1;
                         list("loadmore", url_page_default);
+                        Log.d("SN", "loadmore");
                     }
                 });
 
@@ -119,11 +123,11 @@ public class HomeFragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+
+
                         if (type == "refresh") {
                             articleList.clear();
                         }
-
-
 
                         try {
 
@@ -164,8 +168,7 @@ public class HomeFragment extends Fragment {
                         if (type == "refresh") {
                             ((PullAndLoadListView) listView).onRefreshComplete();
                         } else {
-
-                            ((PullAndLoadListView) listView).onLoadMoreComplete();
+                           // ((PullAndLoadListView) listView).onLoadMoreComplete();
 
                         }
 

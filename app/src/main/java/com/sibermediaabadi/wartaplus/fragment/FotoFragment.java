@@ -89,7 +89,7 @@ public class FotoFragment extends Fragment {
         ((PullAndLoadListView) listView)
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
-                        listView.setPadding(0, 140, 0, 0);
+                        listView.setPadding(0, 180, 0, 0);
                         url_page_default += 1;
                         list("loadmore", url_page_default);
                     }

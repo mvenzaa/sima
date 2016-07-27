@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.sibermediaabadi.wartaplus.fragment.FotoFragment;
 import com.sibermediaabadi.wartaplus.fragment.HomeFragment;
+import com.sibermediaabadi.wartaplus.fragment.PopulerFragment;
 
 
 public class MainActivity extends AppCompatActivity
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         HomeFragment fragment = new HomeFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -110,7 +113,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_populer) {
-            HomeFragment fragment = new HomeFragment();
+            PopulerFragment fragment = new PopulerFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);

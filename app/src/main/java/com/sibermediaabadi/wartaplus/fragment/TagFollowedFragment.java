@@ -1,16 +1,20 @@
 package com.sibermediaabadi.wartaplus.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
 import com.sibermediaabadi.wartaplus.R;
+import com.sibermediaabadi.wartaplus.activity.TagListDetail;
 import com.sibermediaabadi.wartaplus.adapter.TagListAdapter;
 import com.sibermediaabadi.wartaplus.model.article;
 
@@ -68,6 +72,18 @@ public class TagFollowedFragment extends Fragment{
                         list("loadmore");
                     }
                 });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+                TextView c = (TextView) v.findViewById(R.id.ID);
+                String articleID = c.getText().toString();
+                Intent i = new Intent(getActivity().getApplicationContext(), TagListDetail.class);
+                i.putExtra("id", articleID);
+                startActivity(i);
+            }
+        });
 
         return rootView;
     }

@@ -61,7 +61,7 @@ public class DetailFoto extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_foto);
+        setContentView(R.layout.activity_detail_foto);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -73,7 +73,7 @@ public class DetailFoto extends AppCompatActivity
         content_artikel.setVisibility(View.GONE);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Foto");
+        getSupportActionBar().setTitle("Detail Foto");
 
         ID = (TextView) findViewById(R.id.ID);
         title = (TextView) findViewById(R.id.title);

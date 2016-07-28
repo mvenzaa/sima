@@ -45,8 +45,6 @@ public class FotoFragment extends Fragment {
     // Movies json url
     private Integer url_page_default = 0;
 
-
-
     private List<foto> fotoList = new ArrayList<foto>();
     private ListView listView;
     private FotoListAdapter adapter;
@@ -67,15 +65,13 @@ public class FotoFragment extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.list);
         adapter = new FotoListAdapter(getActivity(), fotoList);
         listView.setAdapter(adapter);
+
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
-
 
         listView.setPadding(0, 70, 0, 0);
         url_page_default = 0;
         list("default", url_page_default);
-
-
 
 
         ((PullAndLoadListView) listView)

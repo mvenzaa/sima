@@ -1,5 +1,7 @@
 package com.sibermediaabadi.wartaplus;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -7,11 +9,15 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
+import com.sibermediaabadi.wartaplus.activity.Search;
+import com.sibermediaabadi.wartaplus.activity.TagActivity;
 import com.sibermediaabadi.wartaplus.fragment.FotoFragment;
 import com.sibermediaabadi.wartaplus.fragment.HomeFragment;
 import com.sibermediaabadi.wartaplus.fragment.PopulerFragment;
@@ -25,11 +31,14 @@ public class MainActivity extends AppCompatActivity
 
     private TextView title_nav;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
         HomeFragment fragment = new HomeFragment();
@@ -65,10 +74,51 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_item_search).getActionView();
+
+
+        if (null != searchView) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setIconifiedByDefault(true);
+            searchView.setIconified(true);
+
+        }
+
+        final MenuItem item =  menu.findItem(R.id.action_tag);
+        searchView.setOnSearchClickListener(new SearchView.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item.setVisible(false);
+            }
+        });
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                item.setVisible(true);
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            public boolean onQueryTextChange(String newText) {
+                return true;
+            }
+
+            public boolean onQueryTextSubmit(String query) {
+                Intent i = new Intent(getApplicationContext(), Search.class);
+                i.putExtra("key", query);
+                startActivity(i);
+                return true;
+            }
+        });
+
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -87,6 +137,8 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

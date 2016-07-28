@@ -51,7 +51,7 @@ public class ListAdapter extends BaseAdapter {
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.article_item, null);
+            convertView = inflater.inflate(R.layout.item_article, null);
 
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();

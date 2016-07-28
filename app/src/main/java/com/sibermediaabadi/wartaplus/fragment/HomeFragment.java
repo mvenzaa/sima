@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -57,8 +56,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -68,7 +65,6 @@ public class HomeFragment extends Fragment {
 
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
-
         url_page_default = 1;
         list("default", url_page_default);
         listView.setPadding(0, 70, 0, 0);
@@ -120,6 +116,7 @@ public class HomeFragment extends Fragment {
         // Creating volley request obj
         JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/posts?filter[posts_per_page]=10&page=" + String.valueOf(page),
 
+
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -137,7 +134,6 @@ public class HomeFragment extends Fragment {
 //                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
 //                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
 //                                JSONObject medium = sizes.getJSONObject("medium");
-
 
 
 
@@ -187,6 +183,7 @@ public class HomeFragment extends Fragment {
 
     }
 
+
     public void noInternet()
     {
         ConnectionDetector cd = new ConnectionDetector(getActivity());
@@ -203,4 +200,3 @@ public class HomeFragment extends Fragment {
     }
 
 }
-

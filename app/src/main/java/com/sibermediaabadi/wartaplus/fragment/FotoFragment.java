@@ -42,14 +42,8 @@ public class FotoFragment extends Fragment {
     // Log tag
     private static final String TAG = FotoFragment.class.getSimpleName();
 
-<<<<<<< HEAD
-    private Integer url_page_default;
-=======
     // Movies json url
     private Integer url_page_default = 0;
-
->>>>>>> upstream/master
-
 
     private List<foto> fotoList = new ArrayList<foto>();
     private ListView listView;
@@ -74,20 +68,11 @@ public class FotoFragment extends Fragment {
 
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
-<<<<<<< HEAD
-        listView.setPadding(0, 70, 0, 0);
-        url_page_default = 0;
-        list("default", url_page_default);
-=======
-
 
         listView.setPadding(0, 70, 0, 0);
         url_page_default = 0;
         list("default", url_page_default);
 
-
-
->>>>>>> upstream/master
 
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {

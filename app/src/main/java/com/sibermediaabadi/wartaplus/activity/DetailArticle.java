@@ -92,10 +92,13 @@ public class DetailArticle extends AppCompatActivity {
                         try {
 
 
+<<<<<<< HEAD
                             title.setText(response.getString("title"));
                             date.setText(response.getString("date"));
 
                             content.setText(Html.fromHtml(response.getString("content")));
+=======
+>>>>>>> upstream/master
 
                             JSONObject featured_image = response.getJSONObject("featured_image");
 //                            JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");

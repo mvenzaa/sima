@@ -7,12 +7,15 @@ package com.sibermediaabadi.wartaplus.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,14 +44,14 @@ public class PopulerFragment extends Fragment {
 
     private View rootView;
 
-    // Log tag
-    private static final String TAG = PopulerFragment.class.getSimpleName();
 
     // Movies json url
-    private Integer url_page_default = 1;
+    private Integer url_page_default = 0;
     private List<article> articleList = new ArrayList<article>();
     private ListView listView;
     private ListAdapter adapter;
+    private Spinner spinner;
+    private String link_populer;
 
     ProgressBar bar;
 
@@ -61,7 +64,7 @@ public class PopulerFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        rootView = inflater.inflate(R.layout.fragment_populer, container, false);
 
         listView = (ListView) rootView.findViewById(R.id.list);
         adapter = new ListAdapter(getActivity(), articleList);
@@ -69,25 +72,33 @@ public class PopulerFragment extends Fragment {
 
         bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
+
+        link_populer = Config.main_url + "/popular/week";
+
+        url_page_default = 0;
         list("default", url_page_default);
+        listView.setPadding(0, 10, 0, 0);
 
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
-                        listView.setPadding(0, 140, 0, 0);
-                        url_page_default = 1;
+                        listView.setPadding(0, 190, 0, 0);
+                        url_page_default = 0;
                         list("refresh", url_page_default);
                     }
                 });
+
         ((PullAndLoadListView) listView)
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
-                        listView.setPadding(0, 140, 0, 0);
-                        url_page_default = url_page_default + 1;
+                        listView.setPadding(0, 90, 0, 0);
+                        url_page_default += 1;
                         list("loadmore", url_page_default);
-
                     }
                 });
+
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -100,54 +111,108 @@ public class PopulerFragment extends Fragment {
             }
         });
 
+        spinner = (Spinner) rootView.findViewById(R.id.spinner);
+        List<String> list = new ArrayList<String>();
+        list.add("Hari ini");
+        list.add("Minggu ini");
+        list.add("Bulan ini");
+        list.add("Tahun ini");
+        list.add("Sepanjang Masa");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+
+
+        spinner = (Spinner) rootView.findViewById(R.id.spinner);
+        spinner.setSelection(1);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                listView.setPadding(0, -90, 0, 0);
+                url_page_default = 0;
+                listView.setVisibility(View.GONE);
+                bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);
+                bar.setVisibility(View.VISIBLE);
+                switch (position) {
+                    case 0:
+                        link_populer = Config.main_url + "/popular/day";
+                        break;
+                    case 1:
+                        link_populer = Config.main_url + "/popular/week";
+                        break;
+                    case 2:
+                        link_populer = Config.main_url + "/popular/month";
+                        break;
+                    case 3:
+                        link_populer = Config.main_url + "/popular/year";
+                        break;
+                    case 4:
+                        link_populer = Config.main_url + "/popular/all";
+                        break;
+                }
+                list("refresh", url_page_default);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // sometimes you need nothing here
+            }
+        });
+
+
+
+
         return rootView;
     }
 
+
     public void list(final String type,final int page) {
-        // Creating volley request obj
+
         noInternet();
 
-        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url+ "/posts?filter[posts_per_page]=10&page=" + String.valueOf(page),
+        JsonArrayRequest movieReq = new JsonArrayRequest(link_populer+"?page=" + String.valueOf(page),
+
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
+                        Log.d("SN",response.toString());
 
+                        if (type == "refresh") {
+                            articleList.clear();
+                        }
+
+                        try {
+
+                            for (int i = 0; i < response.length(); i++) {
                                 JSONObject obj = response.getJSONObject(i);
-                                JSONObject featured_image = obj.getJSONObject("featured_image");
-                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
-                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
-                                JSONObject medium = sizes.getJSONObject("medium");
-
 
                                 article b = new article();
-                                b.setFeatured_image_Url(featured_image.getString("source"));
+                                b.setFeatured_image_Url(obj.getString("image"));
                                 b.setID(obj.getInt("ID"));
-                                b.setTitle(obj.getString("title"));
-                                b.setDate(obj.getString("date"));
-
-
+                                b.setTitle(obj.getString("post_title"));
+                                b.setDate(obj.getString("post_modified") + "WIB");
                                 articleList.add(b);
 
-                            } catch (JSONException e) {
-
-                                e.printStackTrace();
                             }
+                        } catch (JSONException e) {
 
-                            adapter.notifyDataSetChanged();
-                            bar.setVisibility(View.GONE);
+                            e.printStackTrace();
+                        }
 
+                        adapter.notifyDataSetChanged();
+                        bar.setVisibility(View.GONE);
+                        listView.setVisibility(View.VISIBLE);
 
-                            if (type == "refresh") {
-                                ((PullAndLoadListView) listView).onRefreshComplete();
-                            } else {
-
-                                ((PullAndLoadListView) listView).onLoadMoreComplete();
-
-                            }
+                        if (type == "refresh") {
+                            ((PullAndLoadListView) listView).onRefreshComplete();
+                        } else {
+                            ((PullAndLoadListView) listView).onLoadMoreComplete();
 
                         }
+
+
                     }
 
                 }, new Response.ErrorListener() {
@@ -159,7 +224,10 @@ public class PopulerFragment extends Fragment {
 
         AppController.getInstance().addToRequestQueue(movieReq, "SN");
 
+
     }
+
+
 
     public void noInternet()
     {
@@ -173,6 +241,7 @@ public class PopulerFragment extends Fragment {
 
             return;
         }
+
     }
 
 }

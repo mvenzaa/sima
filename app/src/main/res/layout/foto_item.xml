@@ -24,7 +24,7 @@
             >
 
 
-            <com.android.volley.toolbox.NetworkImageView
+            <ImageView
                 android:id="@+id/image_small"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"

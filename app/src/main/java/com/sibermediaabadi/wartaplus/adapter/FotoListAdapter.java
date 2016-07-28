@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.sibermediaabadi.wartaplus.R;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.foto;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -58,9 +59,7 @@ public class FotoListAdapter extends BaseAdapter {
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
 
-        NetworkImageView image_small = (NetworkImageView) convertView
-                .findViewById(R.id.image_small);
-
+        ImageView image = (ImageView) convertView.findViewById(R.id.image_small);
 
         TextView ID = (TextView) convertView.findViewById(R.id.ID);
         TextView title = (TextView) convertView.findViewById(R.id.title);
@@ -70,10 +69,10 @@ public class FotoListAdapter extends BaseAdapter {
         foto m = fotoItems.get(position);
 
 
-
-        imageLoader.get(m.getImage_small_Url(), ImageLoader.getImageListener(image_small,
-                R.mipmap.icon_medium, R.mipmap.icon_medium));
-        image_small.setImageUrl(m.getImage_small_Url(), imageLoader);
+        Picasso.with(this.activity).load(m.getImage_small_Url())
+                .placeholder( R.mipmap.icon_medium )
+                .error( R.mipmap.icon_medium )
+                .into(image);
 
 
         // ID

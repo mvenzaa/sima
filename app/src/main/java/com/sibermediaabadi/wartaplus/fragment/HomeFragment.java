@@ -168,7 +168,7 @@ public class HomeFragment extends Fragment {
                         if (type == "refresh") {
                             ((PullAndLoadListView) listView).onRefreshComplete();
                         } else {
-                           // ((PullAndLoadListView) listView).onLoadMoreComplete();
+                            ((PullAndLoadListView) listView).onLoadMoreComplete();
 
                         }
 

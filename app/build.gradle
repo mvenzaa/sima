@@ -33,5 +33,6 @@ dependencies {
     // Pulltorefresh-and-loadmore
     compile project(':pulltorefresh-and-loadmore')
     compile 'com.github.nirhart:parallaxscroll:1.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
     compile project(':library')
 }

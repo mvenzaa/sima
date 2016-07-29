@@ -82,7 +82,7 @@ public class PopulerFragment extends Fragment {
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
-                        listView.setPadding(0, 190, 0, 0);
+                        listView.setPadding(0, 10, 0, 0);
                         url_page_default = 0;
                         list("refresh", url_page_default);
                     }
@@ -91,7 +91,7 @@ public class PopulerFragment extends Fragment {
         ((PullAndLoadListView) listView)
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
-                        listView.setPadding(0, 90, 0, 0);
+                        listView.setPadding(0, 10, 0, 0);
                         url_page_default += 1;
                         list("loadmore", url_page_default);
                     }
@@ -129,7 +129,7 @@ public class PopulerFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                listView.setPadding(0, -90, 0, 0);
+                listView.setPadding(0, 10, 0, 0);
                 url_page_default = 0;
                 listView.setVisibility(View.GONE);
                 bar = (ProgressBar) rootView.findViewById(R.id.loading_progress);

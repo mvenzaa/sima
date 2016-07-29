@@ -2,6 +2,7 @@ package com.sibermediaabadi.wartaplus;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -92,11 +94,12 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+
+
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
@@ -134,7 +137,6 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
             title_nav.setText("GALERI FOTO");
 
-
         } else if (id == R.id.nav_politik) {
             HomeFragment fragment = new HomeFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -160,7 +162,6 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.content_frame, fragment);
             fragmentTransaction.commit();
             title_nav.setText("BERITA HUKUM");
-
 
         } else if (id == R.id.nav_entertainment) {
             HomeFragment fragment = new HomeFragment();

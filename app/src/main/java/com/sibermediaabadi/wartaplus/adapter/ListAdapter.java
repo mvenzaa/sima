@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.sibermediaabadi.wartaplus.R;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.article;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -50,14 +51,12 @@ public class ListAdapter extends BaseAdapter {
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.article_item, null);
+            convertView = inflater.inflate(R.layout.item_article, null);
 
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
 
-        NetworkImageView featured_image = (NetworkImageView) convertView
-                .findViewById(R.id.featured_image);
-
+        ImageView image = (ImageView) convertView.findViewById(R.id.featured_image);
         TextView ID = (TextView) convertView.findViewById(R.id.ID);
         TextView title = (TextView) convertView.findViewById(R.id.title);
         TextView content = (TextView) convertView.findViewById(R.id.content);
@@ -67,9 +66,14 @@ public class ListAdapter extends BaseAdapter {
         article m = articleItems.get(position);
 
 
-        imageLoader.get(m.getFeatured_image_Url(), ImageLoader.getImageListener(featured_image,
-                R.mipmap.icon_medium, R.mipmap.icon_medium));
-        featured_image.setImageUrl(m.getFeatured_image_Url(), imageLoader);
+        Picasso.with(this.activity).load(m.getFeatured_image_Url())
+                .placeholder( R.mipmap.icon_medium )
+                .error( R.mipmap.icon_medium )
+                .into(image);
+
+//        imageLoader.get(m.getFeatured_image_Url(), ImageLoader.getImageListener(featured_image,
+//                R.mipmap.icon_medium, R.mipmap.icon_medium));
+//        featured_image.setImageUrl(m.getFeatured_image_Url(), imageLoader);
 
         /*// image original
         featured_image.setImageUrl(m.getFeatured_image_Url(), imageLoader);*/

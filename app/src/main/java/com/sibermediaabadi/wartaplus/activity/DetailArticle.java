@@ -11,7 +11,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -28,10 +34,19 @@ import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
+import com.sibermediaabadi.wartaplus.adapter.TagListAdapter;
 import com.sibermediaabadi.wartaplus.app.AppController;
+import com.sibermediaabadi.wartaplus.model.article;
+import com.sibermediaabadi.wartaplus.util.DynamicHeightListView;
+import com.sibermediaabadi.wartaplus.util.MyWebViewClient;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Probook 4341s on 5/26/2016.
@@ -40,10 +55,12 @@ public class DetailArticle extends AppCompatActivity {
 
     private String id;
 
-    private TextView ID, title, content, date, author;
+    private TextView ID, title, content, date, author,tagText;
     private String share_link,share_title;
 
-
+    private List<article> articleList = new ArrayList<article>();
+    private ListView listView;
+    private TagListAdapter adapter;
 
 
     ProgressBar bar;
@@ -53,10 +70,13 @@ public class DetailArticle extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_article);
+        setContentView(R.layout.activity_detail_article);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
         content_artikel = (ParallaxScrollView) findViewById(R.id.content_artikel);
         bar = (ProgressBar) findViewById(R.id.loading_progress);
@@ -64,7 +84,35 @@ public class DetailArticle extends AppCompatActivity {
         content_artikel.setVisibility(View.GONE);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Berita");
+        getSupportActionBar().setTitle("Detail");
+
+        listView = (ListView) findViewById(R.id.list);
+        adapter = new TagListAdapter(this, articleList);
+        listView.setAdapter(adapter);
+        listView.setFocusable(false);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+                TextView s = (TextView) v.findViewById(R.id.content);
+                String tagSlug = s.getText().toString();
+
+                TextView n = (TextView) v.findViewById(R.id.title);
+                String tagName = n.getText().toString();
+
+                Intent i = new Intent(getApplicationContext(), TagListDetail.class);
+                i.putExtra("slug", tagSlug);
+                i.putExtra("name", tagName);
+                startActivity(i);
+            }
+        });
+
+
+
+
+
 
         ID = (TextView)findViewById(R.id.ID);
         title = (TextView)findViewById(R.id.title);
@@ -72,6 +120,7 @@ public class DetailArticle extends AppCompatActivity {
         date = (TextView)findViewById(R.id.date);
 
         author = (TextView)findViewById(R.id.author);
+        tagText = (TextView)findViewById(R.id.tagText);
 
 
         Bundle extras = getIntent().getExtras();
@@ -80,6 +129,20 @@ public class DetailArticle extends AppCompatActivity {
 
         }
         Log.d("SN", id);
+
+
+        String uuid = UUID.randomUUID().toString();
+        String url = "http://wartaplus.com/wp-content/plugins/json-rest-api/disqus.php?disqus_id="+id+"&cache="+uuid;
+        WebView webDisqus = (WebView) findViewById(R.id.disqus);
+        WebSettings webSettings2 = webDisqus.getSettings();
+        webSettings2.setJavaScriptEnabled(true);
+        webSettings2.setBuiltInZoomControls(false);
+        webSettings2.setDomStorageEnabled(true);
+        webDisqus.requestFocusFromTouch();
+        webDisqus.setWebViewClient(new MyWebViewClient(url));
+        webDisqus.setWebChromeClient(new WebChromeClient());
+        webDisqus.loadUrl(url);
+
 
 
         // Creating volley request obj
@@ -92,17 +155,30 @@ public class DetailArticle extends AppCompatActivity {
                         try {
 
 
-
                             title.setText(response.getString("title"));
                             date.setText(response.getString("date"));
 
                             content.setText(Html.fromHtml(response.getString("content")));
 
+                            if(response.has("terms")) {
+                                JSONObject terms = response.getJSONObject("terms");
+                                if(terms.has("post_tag")) {
+                                    JSONArray post_tag = terms.getJSONArray("post_tag");
+                                    for (int i = 0; i < post_tag.length(); i++) {
+                                        JSONObject cat = post_tag.getJSONObject(i);
+                                        article a = new article();
+                                        a.setContent(cat.getString("slug"));
+                                        a.setTitle("#" + cat.getString("name"));
+                                        articleList.add(a);
+                                    }
+                                    adapter.notifyDataSetChanged();
+                                    DynamicHeightListView.setListViewHeightBasedOnChildren(listView);
+                                }else{
+                                    tagText.setVisibility(View.GONE);
+                                }
+                            }
 
                             JSONObject featured_image = response.getJSONObject("featured_image");
-//                            JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
-//                            JSONObject sizes = attachment_meta.getJSONObject("sizes");
-//                            JSONObject large = sizes.getJSONObject("large");
 
 
                             title.setText(response.getString("title"));
@@ -117,8 +193,7 @@ public class DetailArticle extends AppCompatActivity {
                             share_title =  response.getString("title");
 
                             final KenBurnsView image_large = (KenBurnsView) findViewById(R.id.featured_image);
-//                            final String image_url = featured_image.getString("source");
-//                            final String detail = response.getString("detail_foto");
+
 
 
                             ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(DetailArticle.this).build();
@@ -156,10 +231,11 @@ public class DetailArticle extends AppCompatActivity {
 
                             bar.setVisibility(View.GONE);
                             content_artikel.setVisibility(View.VISIBLE);
+                            content_artikel.fullScroll(ScrollView.FOCUS_UP);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            //Log.d("SN", response.toString());
+                            Log.d("SN", e.toString());
                         }
 
                     }

@@ -5,13 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.sibermediaabadi.wartaplus.TagActivity">
+    tools:context=".activity.TagActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/content_frame" >
-    </FrameLayout>
+
 
     <android.support.design.widget.AppBarLayout
     android:layout_width="match_parent"

@@ -15,10 +15,8 @@
     <com.costum.android.widget.PullAndLoadListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:divider="@null"
-        android:layout_marginTop="10dp"
-        android:dividerHeight="0dp"
+        android:layout_height="fill_parent"
+        android:clipToPadding="false"
         android:listSelector="@drawable/list_row_selector"
         />
 

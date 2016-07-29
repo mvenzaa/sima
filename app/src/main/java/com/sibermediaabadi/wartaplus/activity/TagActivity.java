@@ -1,4 +1,4 @@
-package com.sibermediaabadi.wartaplus;
+package com.sibermediaabadi.wartaplus.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,10 +9,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
-import com.sibermediaabadi.wartaplus.fragment.TagFollowedFragment;
-import com.sibermediaabadi.wartaplus.fragment.TagPopularFragment;
-import com.sibermediaabadi.wartaplus.fragment.TagTodayFragment;
+import com.sibermediaabadi.wartaplus.R;
+import com.sibermediaabadi.wartaplus.fragment.TagDayFragment;
+import com.sibermediaabadi.wartaplus.fragment.TagMonthFragment;
+import com.sibermediaabadi.wartaplus.fragment.TagWeekFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,7 @@ public class TagActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Popular Tag");
+        getSupportActionBar().setTitle("Popular Tags");
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -47,9 +49,9 @@ public class TagActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new TagPopularFragment(), "#Popular");
-        adapter.addFragment(new TagTodayFragment(), "#Today");
-        adapter.addFragment(new TagFollowedFragment(), "#Followed");
+        adapter.addFragment(new TagDayFragment(), "Hari ini");
+        adapter.addFragment(new TagWeekFragment(), "Minggu ini");
+        adapter.addFragment(new TagMonthFragment(), "Bulan ini");
         viewPager.setAdapter(adapter);
     }
 
@@ -82,6 +84,20 @@ public class TagActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
 
 }

@@ -10,12 +10,7 @@
     android:paddingRight="5dp"
     >
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cv"
-        app:cardUseCompatPadding="true"
-        >
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,13 +19,6 @@
             >
 
 
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/image_small"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:scaleType="fitXY" />
 
 
             <TextView
@@ -45,7 +33,6 @@
                 android:visibility="gone" />
 
 
-
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
@@ -55,7 +42,7 @@
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
                 android:textColor="#000000"
-                android:textSize="@dimen/title"
+                android:textSize="15dp"
                 android:textStyle="bold" />
 
 
@@ -74,21 +61,10 @@
                 />
 
 
-            <TextView
-                android:id="@+id/created_at"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:textColor="@color/content"
-                android:textSize="@dimen/content"
 
-                />
 
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+
 
 </LinearLayout>

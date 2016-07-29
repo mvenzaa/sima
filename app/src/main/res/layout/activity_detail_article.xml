@@ -19,6 +19,8 @@
     <com.nirhart.parallaxscroll.views.ParallaxScrollView
         android:id="@+id/content_artikel"
         android:layout_width="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:background="#FFFFFF"
@@ -27,7 +29,6 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
             android:orientation="vertical"
             android:padding="0dp">
 
@@ -114,8 +115,46 @@
                     android:textColor="#333333"
                     android:textSize="17dp" />
 
+                <TextView
+                    android:id="@+id/tagText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/author"
+                    android:layout_marginTop="25dp"
+                    android:textColor="#FFFFFF"
+                    android:background="#333333"
+                    android:text="TAG"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="16dp" />
+
+                <ListView
+                    android:id="@+id/list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"  />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:padding="5dp"
+                    android:orientation="vertical" >
+
+
+                <WebView
+                        android:id="@+id/disqus"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
+
 
         </LinearLayout>
     </com.nirhart.parallaxscroll.views.ParallaxScrollView>

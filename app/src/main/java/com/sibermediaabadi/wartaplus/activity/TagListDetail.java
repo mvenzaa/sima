@@ -1,9 +1,13 @@
 package com.sibermediaabadi.wartaplus.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -41,7 +45,7 @@ public class TagListDetail extends AppCompatActivity {
     private List<article> articleList = new ArrayList<article>();
     private ListView listView;
     private ListAdapter adapter;
-
+    private String slug, name;
     ProgressBar bar;
 
     Toolbar toolbar = null;
@@ -52,13 +56,20 @@ public class TagListDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_home);
+        setContentView(R.layout.activity_list_tag_detail);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            slug = extras.getString("slug");
+            name = extras.getString("name");
+        }
+        Log.d("SN", slug + name);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        title_nav = (TextView) findViewById(R.id.title_nav);
-        title_nav.setText("TAG");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(name);
 
         listView = (ListView) findViewById(R.id.list);
         adapter = new ListAdapter(this, articleList);
@@ -66,14 +77,14 @@ public class TagListDetail extends AppCompatActivity {
 
         bar = (ProgressBar) findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
-        url_page_default = 0;
+        url_page_default = 1;
         list("default", url_page_default);
 
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
                         listView.setPadding(0, 140, 0, 0);
-                        url_page_default = 0;
+                        url_page_default = 1;
                         list("refresh", url_page_default);
                     }
                 });
@@ -86,45 +97,25 @@ public class TagListDetail extends AppCompatActivity {
 
                     }
                 });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        setContentView(R.layout.fragment_home);
-
-        listView = (ListView) findViewById(R.id.list);
-        adapter = new ListAdapter(this, articleList);
-        listView.setAdapter(adapter);
-
-        bar = (ProgressBar) findViewById(R.id.loading_progress);
-        bar.setVisibility(View.VISIBLE);
-        url_page_default = 1;
-        list("default", url_page_default);
-        listView.setPadding(0, 70, 0, 0);
-
-
-        ((PullAndLoadListView) listView)
-                .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-                    public void onRefresh() {
-                        listView.setPadding(0, 180, 0, 0);
-                        url_page_default = 1;
-                        list("refresh", url_page_default);
-                    }
-                });
-
-        ((PullAndLoadListView) listView)
-                .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
-                    public void onLoadMore() {
-                        listView.setPadding(0, 180, 0, 0);
-                        url_page_default = url_page_default + 1;
-                        list("loadmore", url_page_default);
-                    }
-                });
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+                TextView c = (TextView) v.findViewById(R.id.ID);
+                String articleID = c.getText().toString();
+                Intent i = new Intent(getApplicationContext(), DetailArticle.class);
+                i.putExtra("id", articleID);
+                startActivity(i);
+            }
+        });
 
     }
 
-    public void list(final String type,final int page) {
+    public void list(final String type, final int page) {
         noInternet();
 
         // Creating volley request obj
-        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/posts?filter[posts_per_page]=10&page=" + String.valueOf(page),
+        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/posts?filter[tag]=" + slug + "&filter[posts_per_page]=10&page=" + String.valueOf(page),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -137,16 +128,12 @@ public class TagListDetail extends AppCompatActivity {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject obj = response.getJSONObject(i);
                                 JSONObject featured_image = obj.getJSONObject("featured_image");
-//                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
-//                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
-//                                JSONObject medium = sizes.getJSONObject("medium");
 
 
                                 article b = new article();
                                 b.setFeatured_image_Url(featured_image.getString("source"));
                                 b.setID(obj.getInt("ID"));
                                 b.setTitle(obj.getString("title"));
-
                                 String date = obj.getString("date");
                                 String replacedDate = date.replace("T", " ");
                                 b.setDate(replacedDate + " WIB");
@@ -187,8 +174,7 @@ public class TagListDetail extends AppCompatActivity {
     }
 
 
-    public void noInternet()
-    {
+    public void noInternet() {
         ConnectionDetector cd = new ConnectionDetector(this);
         // Check if Internet present
         if (!cd.isConnectingToInternet()) {
@@ -199,6 +185,22 @@ public class TagListDetail extends AppCompatActivity {
 
             return;
         }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
     }
 

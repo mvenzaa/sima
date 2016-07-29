@@ -10,7 +10,6 @@
     android:paddingRight="5dp"
     >
 
-
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,21 +24,20 @@
             >
 
 
-            <com.android.volley.toolbox.NetworkImageView
-            android:id="@+id/featured_image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:adjustViewBounds="true"
-            android:clickable="true"
-            android:scaleType="fitXY" />
+            <ImageView
+                android:id="@+id/image_small"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:scaleType="fitXY" />
 
 
             <TextView
                 android:id="@+id/ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/featured_image"
+                android:layout_below="@id/image_small"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
@@ -47,11 +45,12 @@
                 android:visibility="gone" />
 
 
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/featured_image"
+                android:layout_below="@id/image_small"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
@@ -66,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
                 android:layout_marginTop="5dp"
-                android:layout_toRightOf="@+id/featured_image"
+                android:layout_toRightOf="@+id/image_small"
                 android:textColor="@color/content"
                 android:textSize="@dimen/author"
                 android:textStyle="bold"
@@ -76,7 +75,7 @@
 
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/created_at"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"

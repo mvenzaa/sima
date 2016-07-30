@@ -172,7 +172,7 @@ public class DetailArticle extends AppCompatActivity {
         get_post();
         get_comments();
         insert_comment();
-        get_related();
+
     }
 
 
@@ -250,7 +250,8 @@ public class DetailArticle extends AppCompatActivity {
                                     JSONArray category = terms.getJSONArray("category");
                                     for (int i = 0; i < 1; i++) {
                                         JSONObject ctg = category.getJSONObject(i);
-                                        cat = ctg.getString("ID");
+                                        String related_by_cat = ctg.getString("ID");
+                                        get_related(related_by_cat);
                                     }
                                 } else {
                                     relatedText.setVisibility(View.GONE);
@@ -282,9 +283,9 @@ public class DetailArticle extends AppCompatActivity {
 
     }
 
-    public void get_related() {
+    public void get_related(String related_by_cat) {
         // Creating volley request obj
-        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/posts?filter[posts_per_page]=5&filter[cat]=" + cat,
+        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/posts?filter[posts_per_page]=5&filter[cat]=" + related_by_cat,
 
                 new Response.Listener<JSONArray>() {
                     @Override

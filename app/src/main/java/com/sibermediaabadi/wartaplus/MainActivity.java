@@ -19,8 +19,11 @@ import android.widget.TextView;
 
 import com.sibermediaabadi.wartaplus.activity.Search;
 import com.sibermediaabadi.wartaplus.activity.TagActivity;
+import com.sibermediaabadi.wartaplus.fragment.EntertainmentPlusFragment;
 import com.sibermediaabadi.wartaplus.fragment.FotoFragment;
 import com.sibermediaabadi.wartaplus.fragment.HomeFragment;
+import com.sibermediaabadi.wartaplus.fragment.NewsPlusFragment;
+import com.sibermediaabadi.wartaplus.fragment.PapuaFragment;
 import com.sibermediaabadi.wartaplus.fragment.PopulerFragment;
 
 
@@ -172,7 +175,7 @@ public class MainActivity extends AppCompatActivity
             title_nav.setText("BERITA TERPOPULER");
 
         }  else if (id == R.id.nav_newsplus) {
-            HomeFragment fragment = new HomeFragment();
+            NewsPlusFragment fragment = new NewsPlusFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);
@@ -180,7 +183,7 @@ public class MainActivity extends AppCompatActivity
             title_nav.setText("NEWSPLUS");
 
         } else if (id == R.id.nav_entertainment) {
-            HomeFragment fragment = new HomeFragment();
+            EntertainmentPlusFragment fragment = new EntertainmentPlusFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);
@@ -188,7 +191,7 @@ public class MainActivity extends AppCompatActivity
             title_nav.setText("ENTERTAINMENTPLUS");
 
         } else if (id == R.id.nav_papua) {
-            HomeFragment fragment = new HomeFragment();
+            PapuaFragment fragment = new PapuaFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);

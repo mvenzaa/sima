@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity
         return super.onCreateOptionsMenu(menu);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -139,7 +141,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -154,15 +155,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
             title_nav.setText("BERITA TERBARU");
 
-
         } else if (id == R.id.nav_allnews) {
             HomeFragment fragment = new HomeFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);
             fragmentTransaction.commit();
-                title_nav.setText("ALL NEWS");
-
+            title_nav.setText("ALL NEWS");
 
         } else if (id == R.id.nav_populer) {
             PopulerFragment fragment = new PopulerFragment();
@@ -172,42 +171,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
             title_nav.setText("BERITA TERPOPULER");
 
-
-        } else if (id == R.id.nav_foto) {
-            FotoFragment fragment = new FotoFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment);
-            fragmentTransaction.commit();
-            title_nav.setText("GALERI FOTO");
-
-
-        } else if (id == R.id.nav_politik) {
+        }  else if (id == R.id.nav_newsplus) {
             HomeFragment fragment = new HomeFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);
             fragmentTransaction.commit();
-            title_nav.setText("BERITA POLITIK");
-
-
-        } else if (id == R.id.nav_ekonomi) {
-            HomeFragment fragment = new HomeFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment);
-            fragmentTransaction.commit();
-            title_nav.setText("BERITA EKONOMI");
-
-
-        } else if (id == R.id.nav_hukum) {
-            HomeFragment fragment = new HomeFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment);
-            fragmentTransaction.commit();
-            title_nav.setText("BERITA HUKUM");
-
+            title_nav.setText("NEWSPLUS");
 
         } else if (id == R.id.nav_entertainment) {
             HomeFragment fragment = new HomeFragment();
@@ -215,8 +185,31 @@ public class MainActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);
             fragmentTransaction.commit();
-            title_nav.setText("ENTERTAINMENT PLUS");
+            title_nav.setText("ENTERTAINMENTPLUS");
 
+        } else if (id == R.id.nav_papua) {
+            HomeFragment fragment = new HomeFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, fragment);
+            fragmentTransaction.commit();
+            title_nav.setText("HAI PAPUA");
+
+        }  else if (id == R.id.nav_foto) {
+            FotoFragment fragment = new FotoFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, fragment);
+            fragmentTransaction.commit();
+            title_nav.setText("GALERI FOTO");
+
+        } else if (id == R.id.nav_redaksi) {
+            HomeFragment fragment = new HomeFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, fragment);
+            fragmentTransaction.commit();
+            title_nav.setText("REDAKSI");
 
         }
 

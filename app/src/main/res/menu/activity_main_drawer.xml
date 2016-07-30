@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group
+        android:id="@+id/grp1"
+        android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
             android:title="HOME" />
@@ -10,37 +14,31 @@
         <item
             android:id="@+id/nav_populer"
             android:title="POPULER" />
-        <item
-            android:id="@+id/nav_foto"
-            android:title="FOTO" />
+
+    </group>
 
 
-
-
-    <item android:title="KATEGORI">
-        <menu>
+    <group
+        android:id="@+id/grp2"
+        android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_politik"
-            android:icon="@drawable/ic_politik"
-            android:title="POLITIK" />
-        <item
-            android:id="@+id/nav_ekonomi"
-            android:icon="@drawable/ic_ekonomi"
-            android:title="EKONOMI" />
-        <item
-            android:id="@+id/nav_hukum"
-            android:icon="@drawable/ic_hukum"
-            android:title="HUKUM" />
-
-        </menu>
-    </item>
-
-
+            android:id="@+id/nav_newsplus"
+            android:title="NEWSPLUS" />
         <item
             android:id="@+id/nav_entertainment"
             android:title="ENTERTAINMENTPLUS" />
+        <item
+            android:id="@+id/nav_papua"
+            android:title="HAI PAPUA" />
+        <item
+            android:id="@+id/nav_foto"
+            android:title="FOTO" />
+        <item
+            android:id="@+id/nav_redaksi"
+            android:title="REDAKSI" />
 
 
+    </group>
 
 </menu>

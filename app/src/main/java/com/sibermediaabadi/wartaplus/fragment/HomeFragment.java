@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
-                        listView.setPadding(0, 180, 0, 0);
+                        listView.setPadding(0, 130, 0, 0);
                         url_page_default = 1;
                         list("refresh", url_page_default);
                         Log.d("SN", "refresh");
@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
         ((PullAndLoadListView) listView)
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
-                        listView.setPadding(0, 180, 0, 0);
+                        listView.setPadding(0, 130, 0, 0);
                         url_page_default += 1;
                         list("loadmore", url_page_default);
                         Log.d("SN", "loadmore");

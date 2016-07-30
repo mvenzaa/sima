@@ -129,10 +129,6 @@ public class DetailArticle extends AppCompatActivity {
         commentEmail = (EditText)findViewById(R.id.comment_email);
         commentText = (EditText)findViewById(R.id.comment_content);
         commentButton = (Button)findViewById(R.id.submitComment);
-        commentName.setFocusable(false);
-        commentEmail.setFocusable(false);
-        commentText.setFocusable(false); 
-
 
 
         ID = (TextView) findViewById(R.id.ID);

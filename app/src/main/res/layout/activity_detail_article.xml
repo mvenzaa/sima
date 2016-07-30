@@ -140,6 +140,26 @@
                     android:focusable="false"
                     android:focusableInTouchMode="false" />
 
+                <TextView
+                    android:id="@+id/relatedText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/author"
+                    android:background="#333333"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:text="BERITA TERKAIT"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16dp" />
+
+                <ListView
+                    android:id="@+id/relateds"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+
 
                 <TextView
                     android:id="@+id/commentText"

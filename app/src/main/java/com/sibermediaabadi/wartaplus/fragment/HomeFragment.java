@@ -131,14 +131,14 @@ public class HomeFragment extends Fragment {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject obj = response.getJSONObject(i);
                                 JSONObject featured_image = obj.getJSONObject("featured_image");
-//                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
-//                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
-//                                JSONObject medium = sizes.getJSONObject("medium");
+                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
+                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
+                                JSONObject large = sizes.getJSONObject("tie-large");
 
 
 
                                 article b = new article();
-                                b.setFeatured_image_Url(featured_image.getString("source"));
+                                b.setFeatured_image_Url(large.getString("url"));
                                 b.setID(obj.getInt("ID"));
                                 b.setTitle(obj.getString("title"));
 

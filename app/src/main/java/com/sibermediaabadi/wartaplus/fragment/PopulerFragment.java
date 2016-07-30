@@ -188,8 +188,12 @@ public class PopulerFragment extends Fragment {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject obj = response.getJSONObject(i);
 
+                                JSONObject attachment_meta = obj.getJSONObject("attachment_meta");
+                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
+                                JSONObject large = sizes.getJSONObject("tie-large");
+
                                 article b = new article();
-                                b.setFeatured_image_Url(obj.getString("image"));
+                                b.setFeatured_image_Url(obj.getString("url")+"/"+obj.getString("image_path")+"/"+large.getString("file"));
                                 b.setID(obj.getInt("ID"));
                                 b.setTitle(obj.getString("post_title"));
                                 b.setDate(obj.getString("post_modified") + "WIB");
@@ -199,6 +203,7 @@ public class PopulerFragment extends Fragment {
                         } catch (JSONException e) {
 
                             e.printStackTrace();
+                            Log.d("SN",e.toString());
                         }
 
                         adapter.notifyDataSetChanged();

@@ -37,6 +37,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
 import com.sibermediaabadi.wartaplus.adapter.CommentAdapter;
+import com.sibermediaabadi.wartaplus.adapter.RelatedAdapter;
 import com.sibermediaabadi.wartaplus.adapter.TagListAdapter;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.article;
@@ -59,23 +60,29 @@ public class DetailArticle extends AppCompatActivity {
 
     private String id;
 
-    private TextView ID, title, content, date, author, tagText;
+    private TextView ID, title, content, date, author, tagText, relatedText;
     private String share_link, share_title;
 
     private List<article> articleList = new ArrayList<article>();
     private ListView listView;
     private TagListAdapter adapter;
 
+    private List<article> relatedList = new ArrayList<article>();
+    private ListView listViewRelated;
+    private RelatedAdapter relatedAdapter;
+
+
     private List<comment> commentList = new ArrayList<comment>();
     private ListView listViewComment;
     private CommentAdapter commentAdapter;
 
-    private EditText commentName,commentEmail,commentText;
+    private EditText commentName, commentEmail, commentText;
     private Button commentButton;
-    String string_name,string_email,string_content;
+    String string_name, string_email, string_content;
     String error_text;
     Integer is_error = 0;
 
+    private String cat = "empty_category";
 
     ProgressBar bar;
     ParallaxScrollView content_artikel;
@@ -120,15 +127,34 @@ public class DetailArticle extends AppCompatActivity {
         });
 
 
+        listViewRelated = (ListView) findViewById(R.id.relateds);
+        relatedAdapter = new RelatedAdapter(this, relatedList);
+        listViewRelated.setAdapter(relatedAdapter);
+        listViewRelated.setFocusable(false);
+
+        listViewRelated.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+                TextView i = (TextView) v.findViewById(R.id.ID);
+                String idrelated = i.getText().toString();
+
+                Intent x = new Intent(getApplicationContext(), DetailArticle.class);
+                x.putExtra("id", idrelated);
+                startActivity(x);
+            }
+        });
+
+
         listViewComment = (ListView) findViewById(R.id.comments);
         commentAdapter = new CommentAdapter(this, commentList);
         listViewComment.setAdapter(commentAdapter);
         listViewComment.setFocusable(false);
 
-        commentName = (EditText)findViewById(R.id.comment_name);
-        commentEmail = (EditText)findViewById(R.id.comment_email);
-        commentText = (EditText)findViewById(R.id.comment_content);
-        commentButton = (Button)findViewById(R.id.submitComment);
+        commentName = (EditText) findViewById(R.id.comment_name);
+        commentEmail = (EditText) findViewById(R.id.comment_email);
+        commentText = (EditText) findViewById(R.id.comment_content);
+        commentButton = (Button) findViewById(R.id.submitComment);
 
 
         ID = (TextView) findViewById(R.id.ID);
@@ -137,6 +163,7 @@ public class DetailArticle extends AppCompatActivity {
         date = (TextView) findViewById(R.id.date);
         author = (TextView) findViewById(R.id.author);
         tagText = (TextView) findViewById(R.id.tagText);
+        relatedText = (TextView) findViewById(R.id.relatedText);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -145,102 +172,12 @@ public class DetailArticle extends AppCompatActivity {
         get_post();
         get_comments();
         insert_comment();
-
-    }
-
-    public void insert_comment()
-    {
-        commentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(DetailArticle.this, "Memproses .. ", Toast.LENGTH_SHORT).show();
-
-                commentName.setEnabled(false);
-                commentEmail.setEnabled(false);
-                commentText.setEnabled(false);
-                commentButton.setEnabled(false);
-
-                string_name = commentName.getText().toString();
-                string_email = commentEmail.getText().toString();
-                string_content = commentText.getText().toString();
-
-                error_text = "";
-                is_error = 0;
-                if(string_name.matches("")){
-                    error_text += "Nama Tidak Boleh Kosong \n";
-                    is_error   += 1 ;
-                }
-                if(string_email.matches("")){
-                    error_text += "Email Tidak Boleh Kosong \n";
-                    is_error   += 1 ;
-                }
-                if(string_content.matches("")){
-                    error_text += "Pesan Tidak Boleh Kosong \n";
-                    is_error   += 1 ;
-                }
-
-                if(is_error > 0){
-                    Toast.makeText(DetailArticle.this, error_text, Toast.LENGTH_SHORT).show();
-                    commentName.setEnabled(true);
-                    commentEmail.setEnabled(true);
-                    commentText.setEnabled(true);
-                    commentButton.setEnabled(true);
-                }else{
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("name", string_name);
-                    params.put("email",string_email);
-                    params.put("content",string_content);
-                    JsonObjectRequest posting = new JsonObjectRequest(Request.Method.POST,
-                            Config.main_url+"/comments/insert/"+id,new JSONObject(params),
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    Log.d("SN", response.toString());
-                                    commentName.setEnabled(true);
-                                    commentEmail.setEnabled(true);
-                                    commentText.setEnabled(true);
-                                    commentButton.setEnabled(true);
-                                    commentName.setText("");
-                                    commentEmail.setText("");
-                                    commentText.setText("");
-                                    Toast.makeText(DetailArticle.this, "Berhasil .. ", Toast.LENGTH_SHORT).show();
-                                    commentList.clear();
-                                    commentAdapter.notifyDataSetChanged();
-                                    get_comments();
-                                    Intent refresh = new Intent(getApplicationContext(), DetailArticle.class);
-                                    refresh.putExtra("id", id);
-                                    startActivity(refresh);
-                                    finish();
-
-                                }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            commentName.setEnabled(true);
-                            commentEmail.setEnabled(true);
-                            commentText.setEnabled(true);
-                            commentButton.setEnabled(true);
-                            Toast.makeText(DetailArticle.this, "Terjadi Kesalahan "+error.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }) {
-                        @Override
-                        public Map<String, String> getHeaders() throws AuthFailureError {
-                            HashMap<String, String> headers = new HashMap<String, String>();
-                            headers.put("Content-Type", "application/json; charset=UTF-8");
-                            return headers;
-                        }
-                    };
-                    AppController.getInstance().addToRequestQueue(posting);
-
-                }
-
-            }
-        });
+        get_related();
     }
 
 
-    public void get_post(){
+
+    public void get_post() {
         // Creating volley request obj
         JsonObjectRequest movieReq = new JsonObjectRequest(Request.Method.GET, Config.main_url + "/posts/" + id, null,
                 new Response.Listener<JSONObject>() {
@@ -308,8 +245,18 @@ public class DetailArticle extends AppCompatActivity {
                                 } else {
                                     tagText.setVisibility(View.GONE);
                                 }
-                            }
 
+                                if (terms.has("category")) {
+                                    JSONArray category = terms.getJSONArray("category");
+                                    for (int i = 0; i < 1; i++) {
+                                        JSONObject ctg = category.getJSONObject(i);
+                                        cat = ctg.getString("ID");
+                                    }
+                                } else {
+                                    relatedText.setVisibility(View.GONE);
+                                }
+
+                            }
 
 
                             bar.setVisibility(View.GONE);
@@ -335,8 +282,55 @@ public class DetailArticle extends AppCompatActivity {
 
     }
 
-    public void get_comments()
-    {
+    public void get_related() {
+        // Creating volley request obj
+        JsonArrayRequest movieReq = new JsonArrayRequest(Config.main_url + "/posts?filter[posts_per_page]=5&filter[cat]=" + cat,
+
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject obj = response.getJSONObject(i);
+                                String sameID =  String.valueOf(obj.getInt("ID"));
+                                if(!sameID.equals(id)) {
+                                    JSONObject featured_image = obj.getJSONObject("featured_image");
+                                    JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
+                                    JSONObject sizes = attachment_meta.getJSONObject("sizes");
+                                    JSONObject medium = sizes.getJSONObject("medium");
+                                    article related = new article();
+                                    related.setFeatured_image_Url(medium.getString("url"));
+                                    related.setID(obj.getInt("ID"));
+                                    related.setTitle(obj.getString("title"));
+                                    String date = obj.getString("date");
+                                    String replacedDate = date.replace("T", " ");
+                                    related.setDate(replacedDate + " WIB");
+                                    relatedList.add(related);
+                                }
+                            }
+                        } catch (JSONException e) {
+
+                            e.printStackTrace();
+                        }
+                        relatedAdapter.notifyDataSetChanged();
+                        DynamicHeightListView.setListViewHeightBasedOnChildren(listViewRelated);
+
+
+                    }
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        AppController.getInstance().addToRequestQueue(movieReq, "SN");
+    }
+
+
+    public void get_comments() {
 
         // Creating volley request obj
         JsonArrayRequest comment = new JsonArrayRequest(Config.main_url + "/posts/" + id + "/comments",
@@ -353,7 +347,7 @@ public class DetailArticle extends AppCompatActivity {
                                     JSONObject author = com.getJSONObject("author");
                                     a.setName(author.getString("name"));
                                     a.setAvatar(author.getString("avatar"));
-                                }else{
+                                } else {
                                     a.setName("Admin");
                                     a.setAvatar("http://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=96");
                                 }
@@ -364,7 +358,7 @@ public class DetailArticle extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Log.d("SN",e.toString());
+                            Log.d("SN", e.toString());
                         }
                         commentAdapter.notifyDataSetChanged();
                         DynamicHeightListView.setListViewHeightBasedOnChildren(listViewComment);
@@ -373,13 +367,104 @@ public class DetailArticle extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-            Log.d("SN", error.toString());
+                Log.d("SN", error.toString());
             }
         });
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(comment, "SN");
 
     }
+
+    public void insert_comment() {
+        commentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(DetailArticle.this, "Memproses .. ", Toast.LENGTH_SHORT).show();
+
+                commentName.setEnabled(false);
+                commentEmail.setEnabled(false);
+                commentText.setEnabled(false);
+                commentButton.setEnabled(false);
+
+                string_name = commentName.getText().toString();
+                string_email = commentEmail.getText().toString();
+                string_content = commentText.getText().toString();
+
+                error_text = "";
+                is_error = 0;
+                if (string_name.matches("")) {
+                    error_text += "Nama Tidak Boleh Kosong \n";
+                    is_error += 1;
+                }
+                if (string_email.matches("")) {
+                    error_text += "Email Tidak Boleh Kosong \n";
+                    is_error += 1;
+                }
+                if (string_content.matches("")) {
+                    error_text += "Pesan Tidak Boleh Kosong \n";
+                    is_error += 1;
+                }
+
+                if (is_error > 0) {
+                    Toast.makeText(DetailArticle.this, error_text, Toast.LENGTH_SHORT).show();
+                    commentName.setEnabled(true);
+                    commentEmail.setEnabled(true);
+                    commentText.setEnabled(true);
+                    commentButton.setEnabled(true);
+                } else {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("name", string_name);
+                    params.put("email", string_email);
+                    params.put("content", string_content);
+                    JsonObjectRequest posting = new JsonObjectRequest(Request.Method.POST,
+                            Config.main_url + "/comments/insert/" + id, new JSONObject(params),
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Log.d("SN", response.toString());
+                                    commentName.setEnabled(true);
+                                    commentEmail.setEnabled(true);
+                                    commentText.setEnabled(true);
+                                    commentButton.setEnabled(true);
+                                    commentName.setText("");
+                                    commentEmail.setText("");
+                                    commentText.setText("");
+                                    Toast.makeText(DetailArticle.this, "Berhasil .. ", Toast.LENGTH_SHORT).show();
+                                    commentList.clear();
+                                    commentAdapter.notifyDataSetChanged();
+                                    get_comments();
+                                    Intent refresh = new Intent(getApplicationContext(), DetailArticle.class);
+                                    refresh.putExtra("id", id);
+                                    startActivity(refresh);
+                                    finish();
+
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            commentName.setEnabled(true);
+                            commentEmail.setEnabled(true);
+                            commentText.setEnabled(true);
+                            commentButton.setEnabled(true);
+                            Toast.makeText(DetailArticle.this, "Terjadi Kesalahan " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            HashMap<String, String> headers = new HashMap<String, String>();
+                            headers.put("Content-Type", "application/json; charset=UTF-8");
+                            return headers;
+                        }
+                    };
+                    AppController.getInstance().addToRequestQueue(posting);
+
+                }
+
+            }
+        });
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

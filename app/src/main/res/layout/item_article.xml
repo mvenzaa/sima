@@ -27,11 +27,12 @@
 
             <ImageView
             android:id="@+id/featured_image"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="200dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:adjustViewBounds="true"
             android:clickable="true"
+                android:cropToPadding="true"
             android:scaleType="fitXY" />
 
 

@@ -22,7 +22,7 @@ public class DynamicHeightListView {
         }
 
         ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listView.getAdapter().getCount() - 1)) + 50;
+        params.height = totalHeight + (listView.getDividerHeight() * (listView.getAdapter().getCount() - 1)) + 80;
         listView.setLayoutParams(params);
         listView.requestLayout();
     }

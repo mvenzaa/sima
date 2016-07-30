@@ -19,17 +19,19 @@
     <com.nirhart.parallaxscroll.views.ParallaxScrollView
         android:id="@+id/content_artikel"
         android:layout_width="match_parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:background="#FFFFFF"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:visibility="gone">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:padding="0dp">
 
             <RelativeLayout
@@ -58,9 +60,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:orientation="vertical"
                 android:padding="0dp">
-
+                <requestFocus />
                 <TextView
                     android:id="@+id/date"
                     android:layout_width="fill_parent"
@@ -121,12 +125,12 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/author"
                     android:layout_marginTop="25dp"
-                    android:textColor="#FFFFFF"
                     android:background="#333333"
-                    android:text="TAG"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    android:text="TAG"
+                    android:textColor="#FFFFFF"
                     android:textSize="16dp" />
 
                 <ListView
@@ -134,25 +138,90 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:focusable="false"
-                    android:focusableInTouchMode="false"  />
+                    android:focusableInTouchMode="false" />
+
+
+                <TextView
+                    android:id="@+id/commentText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/author"
+                    android:layout_marginTop="25dp"
+                    android:background="#333333"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:text="KOMENTAR"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16dp" />
+
+                <ListView
+                    android:id="@+id/comments"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="25dp"
-                    android:padding="5dp"
-                    android:orientation="vertical" >
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
 
-                <WebView
-                        android:id="@+id/disqus"
+                        <EditText
+                            android:id="@+id/comment_name"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:ems="10"
+                            android:hint="Nama"
+                            android:inputType="text" />
+
+                        <EditText
+                            android:id="@+id/comment_email"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:ems="10"
+                            android:hint="Email"
+                            android:inputType="text" />
+                    </LinearLayout>
+
+                    <!--<EditText-->
+                    <!--android:id="@+id/comment_url"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="10dp"-->
+
+                    <!--android:ems="10"-->
+                    <!--android:hint="Url"-->
+                    <!--android:inputType="text" />-->
+
+                    <EditText
+                        android:id="@+id/comment_content"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+
+                        android:ems="10"
+                        android:hint="Pesan"
+                        android:inputType="text|textMultiLine" />
+
+                    <Button
+                        android:id="@+id/submitComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kirim" />
 
                 </LinearLayout>
-
-
             </LinearLayout>
 
 

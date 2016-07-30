@@ -3,23 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:paddingTop="0dp"
     android:paddingBottom="0dp"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     >
-
-
-
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv"
+        app:cardUseCompatPadding="true"
+        >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
             >
-
-
-
 
             <TextView
                 android:id="@+id/ID"
@@ -64,7 +63,7 @@
 
 
         </RelativeLayout>
-
+</android.support.v7.widget.CardView>
 
 
 </LinearLayout>

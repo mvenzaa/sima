@@ -42,6 +42,7 @@
         <activity
             android:name=".activity.DetailArticleActivity"
             android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

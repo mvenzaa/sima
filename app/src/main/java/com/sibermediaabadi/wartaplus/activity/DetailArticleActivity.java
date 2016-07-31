@@ -96,8 +96,6 @@ public class DetailArticleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-
-
         setContentView(R.layout.activity_detail_article);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -112,8 +110,6 @@ public class DetailArticleActivity extends AppCompatActivity {
 
         collapsingToolbarLayout= (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
-        collapsingToolbarLayout.requestFocus();
-
 
 
         listView = (ListView) findViewById(R.id.list);

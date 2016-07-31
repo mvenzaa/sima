@@ -7,6 +7,8 @@
     <!-- Network State Permissions to detect Internet status -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
     <application
         android:name=".app.AppController"
         android:allowBackup="true"
@@ -15,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".splashscreen"
+            android:name=".Splashscreen"
             android:label="@string/app_name"
             android:noHistory="true"
             android:screenOrientation="portrait">
@@ -38,14 +40,20 @@
         </activity>
 
         <activity
-            android:name=".activity.DetailArticle"
+            android:name=".activity.DetailArticleActivity"
             android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
-            android:name=".activity.DetailFoto"
+            android:name=".activity.DetailArticleFotoActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".activity.DetailArticleActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.DetailFotoActivity"
             android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -65,12 +73,17 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".activity.Search"
+            android:name=".activity.SearchActivity"
             android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
+        <activity
+            android:name=".activity.DetailPageActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
 
     </application>

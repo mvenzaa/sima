@@ -19,7 +19,7 @@ import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
 import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
-import com.sibermediaabadi.wartaplus.activity.DetailArticle;
+import com.sibermediaabadi.wartaplus.activity.DetailArticleActivity;
 import com.sibermediaabadi.wartaplus.adapter.ListAdapter;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.article;
@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 TextView c = (TextView) v.findViewById(R.id.ID);
                 String articleID = c.getText().toString();
-                Intent i = new Intent(getActivity().getApplicationContext(), DetailArticle.class);
+                Intent i = new Intent(getActivity().getApplicationContext(), DetailArticleActivity.class);
                 i.putExtra("id", articleID);
                 startActivity(i);
             }
@@ -131,14 +131,14 @@ public class HomeFragment extends Fragment {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject obj = response.getJSONObject(i);
                                 JSONObject featured_image = obj.getJSONObject("featured_image");
-//                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
-//                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
-//                                JSONObject medium = sizes.getJSONObject("medium");
+                                JSONObject attachment_meta = featured_image.getJSONObject("attachment_meta");
+                                JSONObject sizes = attachment_meta.getJSONObject("sizes");
+                                JSONObject large = sizes.getJSONObject("tie-large");
 
 
 
                                 article b = new article();
-                                b.setFeatured_image_Url(featured_image.getString("source"));
+                                b.setFeatured_image_Url(large.getString("url"));
                                 b.setID(obj.getInt("ID"));
                                 b.setTitle(obj.getString("title"));
 

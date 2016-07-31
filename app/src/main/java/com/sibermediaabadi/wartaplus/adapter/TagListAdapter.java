@@ -2,6 +2,7 @@ package com.sibermediaabadi.wartaplus.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +72,7 @@ public class TagListAdapter extends BaseAdapter {
         ID.setText(String.valueOf(m.getID()));
 
         // title
-        title.setText("" + String.valueOf(m.getTitle()));
+        title.setText(Html.fromHtml(String.valueOf(m.getTitle())));
 
         // content
         content.setText(m.getContent());

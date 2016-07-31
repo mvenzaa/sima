@@ -35,7 +35,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 
-public class DetailFoto extends AppCompatActivity
+public class DetailFotoActivity extends AppCompatActivity
         implements BaseSliderView.OnSliderClickListener,
         ViewPagerEx.OnPageChangeListener {
 
@@ -44,7 +44,7 @@ public class DetailFoto extends AppCompatActivity
     private TextView ID, title, content, created_at, youtube_id, image_small;
 
     // Log tag
-    private static final String TAG = DetailArticle.class.getSimpleName();
+    private static final String TAG = DetailArticleActivity.class.getSimpleName();
 
     // Movies json url
     //private static final String url = "http://stopnarkoba.id/service/artikels/";
@@ -125,13 +125,13 @@ public class DetailFoto extends AppCompatActivity
                             share_title = "Galeri Foto Wartaplus";
 
                             for (String name : image_maps.keySet()) {
-                                TextSliderView textSliderView = new TextSliderView(DetailFoto.this);
+                                TextSliderView textSliderView = new TextSliderView(DetailFotoActivity.this);
                                 // initialize a SliderLayout
                                 textSliderView
                                         .description(name)
                                         .image(image_maps.get(name))
                                         .setScaleType(BaseSliderView.ScaleType.Fit)
-                                        .setOnSliderClickListener(DetailFoto.this);
+                                        .setOnSliderClickListener(DetailFotoActivity.this);
 
                                 //add your extra information
                                 textSliderView.bundle(new Bundle());
@@ -145,7 +145,7 @@ public class DetailFoto extends AppCompatActivity
                             imageSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
                             imageSlider.setCustomAnimation(new DescriptionAnimation());
                             imageSlider.setDuration(20000);
-                            imageSlider.addOnPageChangeListener(DetailFoto.this);
+                            imageSlider.addOnPageChangeListener(DetailFotoActivity.this);
 
                             bar.setVisibility(View.GONE);
                             content_artikel.setVisibility(View.VISIBLE);

@@ -25,25 +25,29 @@
             >
 
 
-            <ImageView
-            android:id="@+id/featured_image"
-            android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:adjustViewBounds="true"
-            android:clickable="true"
-                android:cropToPadding="true"
-            android:scaleType="fitXY" />
+            <!-- Thumbnail Image -->
+            <!--<ImageView-->
+                <!--android:id="@+id/featured_image"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:adjustViewBounds="true"-->
+                <!--android:cropToPadding="false"-->
+                <!--android:scaleType="centerCrop" />-->
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/featured_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="10dp"
+            />
 
             <TextView
                 android:id="@+id/ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/featured_image"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="10dp"
                 android:textSize="@dimen/ID"
                 android:visibility="gone" />
 
@@ -52,13 +56,10 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/featured_image"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="10dp"
+                android:layout_toRightOf="@id/featured_image"
                 android:textColor="#000000"
-                android:textSize="@dimen/title"
-                android:textStyle="bold" />
+                android:textSize="14sp"
+            />
 
 
             <TextView
@@ -80,12 +81,10 @@
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/featured_image"
                 android:layout_below="@id/title"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:textColor="@color/content"
-                android:textSize="@dimen/content"
+                android:textSize="12sp"
 
                 />
 

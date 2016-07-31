@@ -1,4 +1,4 @@
-package com.sibermediaabadi.wartaplus;
+package com.sibermediaabadi.wartaplus.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;

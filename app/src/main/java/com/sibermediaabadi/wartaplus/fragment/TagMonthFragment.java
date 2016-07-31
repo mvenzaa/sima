@@ -72,6 +72,7 @@ public class TagMonthFragment extends Fragment {
 
                         url_page_default = 0;
                         list("refresh", url_page_default);
+                        listView.setPadding(0, 50, 0, 0);
                     }
                 });
         ((PullAndLoadListView) listView)
@@ -80,6 +81,7 @@ public class TagMonthFragment extends Fragment {
 
                         url_page_default += 1;
                         list("loadmore", url_page_default);
+                        listView.setPadding(0, 50, 0, 0);
                     }
                 });
 

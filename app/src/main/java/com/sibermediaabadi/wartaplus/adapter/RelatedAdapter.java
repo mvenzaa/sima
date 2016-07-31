@@ -18,14 +18,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ListAdapter extends BaseAdapter {
+public class RelatedAdapter extends BaseAdapter {
 
     private Activity activity;
     private LayoutInflater inflater;
     private List<article> articleItems;
     ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
-    public ListAdapter(Activity activity, List<article> articleItems) {
+    public RelatedAdapter(Activity activity, List<article> articleItems) {
         this.activity = activity;
         this.articleItems = articleItems;
     }
@@ -51,7 +51,7 @@ public class ListAdapter extends BaseAdapter {
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.item_article, null);
+            convertView = inflater.inflate(R.layout.item_related, null);
 
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();

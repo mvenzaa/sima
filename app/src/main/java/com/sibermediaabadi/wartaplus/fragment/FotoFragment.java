@@ -19,7 +19,7 @@ import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
 import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
-import com.sibermediaabadi.wartaplus.activity.DetailFoto;
+import com.sibermediaabadi.wartaplus.activity.DetailFotoActivity;
 import com.sibermediaabadi.wartaplus.adapter.FotoListAdapter;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.foto;
@@ -97,7 +97,7 @@ public class FotoFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 TextView c = (TextView) v.findViewById(R.id.ID);
                 String articleID = c.getText().toString();
-                Intent i = new Intent(getActivity().getApplicationContext(), DetailFoto.class);
+                Intent i = new Intent(getActivity().getApplicationContext(), DetailFotoActivity.class);
                 i.putExtra("id", articleID);
                 startActivity(i);
             }

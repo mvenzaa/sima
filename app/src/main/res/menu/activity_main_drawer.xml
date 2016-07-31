@@ -41,4 +41,17 @@
 
     </group>
 
+    <group
+        android:id="@+id/grp3"
+        android:checkableBehavior="single"
+        android:visible="false">
+
+        <item
+            android:id="@+id/rate_app"
+            android:title="RATE APP"
+            android:visible="false"/>
+
+
+    </group>
+
 </menu>

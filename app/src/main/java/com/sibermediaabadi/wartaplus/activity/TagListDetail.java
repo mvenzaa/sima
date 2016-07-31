@@ -77,13 +77,15 @@ public class TagListDetail extends AppCompatActivity {
 
         bar = (ProgressBar) findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
+        listView.setPadding(0, -70, 0, 0);
+
         url_page_default = 1;
         list("default", url_page_default);
 
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
-                        listView.setPadding(0, 140, 0, 0);
+                        listView.setPadding(0, 100, 0, 0);
                         url_page_default = 1;
                         list("refresh", url_page_default);
                     }
@@ -103,7 +105,7 @@ public class TagListDetail extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 TextView c = (TextView) v.findViewById(R.id.ID);
                 String articleID = c.getText().toString();
-                Intent i = new Intent(getApplicationContext(), DetailArticle.class);
+                Intent i = new Intent(getApplicationContext(), DetailArticleActivity.class);
                 i.putExtra("id", articleID);
                 startActivity(i);
             }

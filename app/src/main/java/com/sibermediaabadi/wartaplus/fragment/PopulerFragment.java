@@ -26,7 +26,7 @@ import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
 import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
-import com.sibermediaabadi.wartaplus.activity.DetailArticle;
+import com.sibermediaabadi.wartaplus.activity.DetailArticleActivity;
 import com.sibermediaabadi.wartaplus.adapter.ListAdapter;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.article;
@@ -77,12 +77,12 @@ public class PopulerFragment extends Fragment {
 
         url_page_default = 0;
         list("default", url_page_default);
-        listView.setPadding(0, 10, 0, 0);
+       // listView.setPadding(0, 120, 0, 0);
 
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
-                        listView.setPadding(0, 10, 0, 0);
+                        listView.setPadding(0, 0, 0, 0);
                         url_page_default = 0;
                         list("refresh", url_page_default);
                     }
@@ -91,7 +91,7 @@ public class PopulerFragment extends Fragment {
         ((PullAndLoadListView) listView)
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
-                        listView.setPadding(0, 10, 0, 0);
+                        listView.setPadding(0, 0, 0, 0);
                         url_page_default += 1;
                         list("loadmore", url_page_default);
                     }
@@ -105,7 +105,7 @@ public class PopulerFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 TextView c = (TextView) v.findViewById(R.id.ID);
                 String articleID = c.getText().toString();
-                Intent i = new Intent(getActivity().getApplicationContext(), DetailArticle.class);
+                Intent i = new Intent(getActivity().getApplicationContext(), DetailArticleActivity.class);
                 i.putExtra("id", articleID);
                 startActivity(i);
             }

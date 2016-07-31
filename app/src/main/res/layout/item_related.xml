@@ -26,16 +26,23 @@
 
 
             <!-- Thumbnail Image -->
-            <ImageView
+            <!--<ImageView-->
+                <!--android:id="@+id/featured_image"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:adjustViewBounds="true"-->
+                <!--android:cropToPadding="false"-->
+                <!--android:scaleType="centerCrop" />-->
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/featured_image"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentLeft="true"
-                android:layout_marginRight="8dp"
-                android:adjustViewBounds="true"
-                android:cropToPadding="false"
-                android:scaleType="centerCrop" />
-
+                android:layout_marginRight="10dp"
+            />
 
             <TextView
                 android:id="@+id/ID"

@@ -70,15 +70,19 @@ public class TagDayFragment extends Fragment {
         ((PullAndLoadListView) listView)
                 .setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
                     public void onRefresh() {
+
                         url_page_default = 0;
                         list("refresh", url_page_default);
+                        listView.setPadding(0, 50, 0, 0);
                     }
                 });
         ((PullAndLoadListView) listView)
                 .setOnLoadMoreListener(new PullAndLoadListView.OnLoadMoreListener() {
                     public void onLoadMore() {
+
                         url_page_default += 1;
                         list("loadmore", url_page_default);
+                        listView.setPadding(0, 50, 0, 0);
                     }
                 });
 

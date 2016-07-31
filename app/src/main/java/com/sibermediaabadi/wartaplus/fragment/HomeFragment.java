@@ -19,7 +19,7 @@ import com.costum.android.widget.PullAndLoadListView;
 import com.costum.android.widget.PullToRefreshListView;
 import com.sibermediaabadi.wartaplus.Config;
 import com.sibermediaabadi.wartaplus.R;
-import com.sibermediaabadi.wartaplus.activity.DetailArticle;
+import com.sibermediaabadi.wartaplus.activity.DetailArticleActivity;
 import com.sibermediaabadi.wartaplus.adapter.ListAdapter;
 import com.sibermediaabadi.wartaplus.app.AppController;
 import com.sibermediaabadi.wartaplus.model.article;
@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 TextView c = (TextView) v.findViewById(R.id.ID);
                 String articleID = c.getText().toString();
-                Intent i = new Intent(getActivity().getApplicationContext(), DetailArticle.class);
+                Intent i = new Intent(getActivity().getApplicationContext(), DetailArticleActivity.class);
                 i.putExtra("id", articleID);
                 startActivity(i);
             }

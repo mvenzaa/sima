@@ -82,7 +82,7 @@ public class RelatedAdapter extends BaseAdapter {
         ID.setText(String.valueOf(m.getID()));
 
         // title
-        title.setText("" + String.valueOf(m.getTitle()));
+        title.setText(Html.fromHtml(String.valueOf(m.getTitle())));
 
         // content
         content.setText(Html.fromHtml(String.valueOf(m.getContent())));

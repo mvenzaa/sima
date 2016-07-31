@@ -7,10 +7,10 @@ import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class splashscreen extends Activity {
+public class Splashscreen extends Activity {
 
     //Set waktu lama splashscreen
-    private static int splashInterval = 5000;
+    private static int splashInterval = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class splashscreen extends Activity {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                Intent i = new Intent(splashscreen.this, WelcomeActivity.class);
+                Intent i = new Intent(Splashscreen.this, WelcomeActivity.class);
                 startActivity(i);
 
 

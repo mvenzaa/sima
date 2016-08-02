@@ -70,7 +70,9 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:indeterminate="true" />
+        android:indeterminate="true"
+        android:layout_marginTop="80dp"
+        />
 
 
     <android.support.v4.widget.NestedScrollView

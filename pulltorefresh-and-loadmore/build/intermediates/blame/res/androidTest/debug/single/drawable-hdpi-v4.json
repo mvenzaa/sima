@@ -4,7 +4,15 @@
         "source": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\Probook 4341s\\Desktop\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Probook 4341s\\Desktop\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
         "merged": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_pulltorefresh_arrow.png",
         "source": "C:\\Users\\ASUS\\Documents\\android-project\\WORK\\wartplus\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_pulltorefresh_arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\Probook 4341s\\Desktop\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_pulltorefresh_arrow.png",
+        "source": "C:\\Users\\Probook 4341s\\Desktop\\sima\\pulltorefresh-and-loadmore\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_pulltorefresh_arrow.png"
     }
 ]

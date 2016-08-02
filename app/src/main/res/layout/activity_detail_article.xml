@@ -30,6 +30,7 @@
                 android:id="@+id/featured_image"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:maxHeight="220dp"
                 android:fitsSystemWindows="true"
                 android:minHeight="220dp"
                 app:layout_collapseMode="parallax" />
@@ -39,10 +40,27 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin">
+                app:layout_collapseMode="pin" />
 
-            </android.support.v7.widget.Toolbar>
+
         </android.support.design.widget.CollapsingToolbarLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/featured_image"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="bottom"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#333333"
+            android:textStyle="bold"
+            app:layout_collapseMode="parallax"/>
+
     </android.support.design.widget.AppBarLayout>
 
 
@@ -67,15 +85,7 @@
             android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="#111111"
-                android:textSize="24dp"
-                android:textStyle="bold" />
+
 
             <TextView
                 android:id="@+id/date"

@@ -90,6 +90,7 @@ public class DetailArticleActivity extends AppCompatActivity {
     ProgressBar bar;
     NestedScrollView content_artikel;
     CollapsingToolbarLayout collapsingToolbarLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -97,20 +98,18 @@ public class DetailArticleActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_detail_article);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        collapsingToolbarLayout= (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
 
         content_artikel = (NestedScrollView) findViewById(R.id.content_artikel);
         bar = (ProgressBar) findViewById(R.id.loading_progress);
         bar.setVisibility(View.VISIBLE);
         content_artikel.setVisibility(View.GONE);
-        content_artikel.smoothScrollTo(0,0);
-
-        collapsingToolbarLayout= (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
-
+        content_artikel.smoothScrollTo(0, 0);
 
         listView = (ListView) findViewById(R.id.list);
         adapter = new TagListAdapter(this, articleList);
@@ -211,7 +210,7 @@ public class DetailArticleActivity extends AppCompatActivity {
                             date.setText(replacedDate + " WIB");
                             title.setText(Html.fromHtml(response.getString("title")));
                             content.setText(Html.fromHtml(response.getString("content")));
-                            collapsingToolbarLayout.setTitle(Html.fromHtml(response.getString("title")));
+                            //collapsingToolbarLayout.setTitle(Html.fromHtml(response.getString("title")));
                             JSONObject authorObj = response.getJSONObject("author");
                             author.setText("Oleh : "+ authorObj.getString("first_name") + " " + authorObj.getString("last_name"));
 

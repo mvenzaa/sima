@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sibermediaabadi.wartaplus">
+    package="com.bangunmediasejahtera.wartaplus">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,14 +10,14 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
-        android:name=".app.AppController"
+        android:name="com.bangunmediasejahtera.wartaplus.app.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Splashscreen"
+            android:name="com.bangunmediasejahtera.wartaplus.Splashscreen"
             android:label="@string/app_name"
             android:noHistory="true"
             android:screenOrientation="portrait">
@@ -29,59 +29,59 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.bangunmediasejahtera.wartaplus.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".WelcomeActivity"
+            android:name="com.bangunmediasejahtera.wartaplus.WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".activity.DetailArticleActivity"
+            android:name="com.bangunmediasejahtera.wartaplus.activity.DetailArticleActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.bangunmediasejahtera.wartaplus.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".activity.DetailArticleFotoActivity"
+            android:name="com.bangunmediasejahtera.wartaplus.activity.DetailArticleFotoActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activity.DetailArticleActivity"
+            android:parentActivityName="com.bangunmediasejahtera.wartaplus.activity.DetailArticleActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".activity.DetailFotoActivity"
+            android:name="com.bangunmediasejahtera.wartaplus.activity.DetailFotoActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
-        <activity
-            android:name=".activity.TagActivity"
-            android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.bangunmediasejahtera.wartaplus.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".activity.TagListDetail"
+            android:name="com.bangunmediasejahtera.wartaplus.activity.TagActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activity.TagActivity"
+            android:parentActivityName="com.bangunmediasejahtera.wartaplus.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name="com.bangunmediasejahtera.wartaplus.activity.TagListDetail"
+            android:label="@string/app_name"
+            android:parentActivityName="com.bangunmediasejahtera.wartaplus.activity.TagActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".activity.SearchActivity"
+            android:name="com.bangunmediasejahtera.wartaplus.activity.SearchActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.bangunmediasejahtera.wartaplus.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".activity.DetailPageActivity"
+            android:name="com.bangunmediasejahtera.wartaplus.activity.DetailPageActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.bangunmediasejahtera.wartaplus.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 

@@ -6,7 +6,18 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context="com.sibermediaabadi.wartaplus.MainActivity">
+    tools:context="com.bangunmediasejahtera.wartaplus.MainActivity">
+
+
+    <com.costum.android.widget.PullAndLoadListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:listSelector="@drawable/list_row_selector" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,17 +38,6 @@
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_arrow_drop_down_circle_24dp" />
     </RelativeLayout>
-
-
-    <com.costum.android.widget.PullAndLoadListView
-        android:id="@+id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:listSelector="@drawable/list_row_selector" />
-
 
     <ProgressBar
         android:id="@+id/loading_progress"

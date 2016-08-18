@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context="com.sibermediaabadi.wartaplus.MainActivity">
+    tools:context="com.bangunmediasejahtera.wartaplus.MainActivity">
 
 
     <com.costum.android.widget.PullAndLoadListView

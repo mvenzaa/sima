@@ -1,4 +1,4 @@
-package com.sibermediaabadi.wartaplus;
+package com.bangunmediasejahtera.wartaplus;
 
 import org.junit.Test;
 

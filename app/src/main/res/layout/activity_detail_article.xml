@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.sibermediaabadi.wartaplus.MainActivity">
+    tools:context="com.bangunmediasejahtera.wartaplus.MainActivity">
 
 
     <android.support.design.widget.AppBarLayout
@@ -35,7 +35,6 @@
                 android:minHeight="220dp"
                 app:layout_collapseMode="parallax" />
 
-
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -61,6 +60,22 @@
             android:textStyle="bold"
             app:layout_collapseMode="parallax"/>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ads_top"
+                android:layout_below="@+id/title"
+                android:layout_gravity="center_horizontal"
+                app:layout_collapseMode="parallax"/>
+
+        </LinearLayout>
+
+
     </android.support.design.widget.AppBarLayout>
 
 
@@ -71,7 +86,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:indeterminate="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="150dp"
         />
 
 
@@ -87,14 +102,12 @@
             android:orientation="vertical">
 
 
-
-
             <TextView
                 android:id="@+id/date"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dip"
                 android:textColor="@color/content"
                 android:textSize="15dp" />
 
@@ -251,6 +264,19 @@
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <WebView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ads_bottom"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
 
